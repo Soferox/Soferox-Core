@@ -1,0 +1,736 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="D_St|Win32">
+      <Configuration>D_St</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="D_St|x64">
+      <Configuration>D_St</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="R_St|x64">
+      <Configuration>R_St</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="R_St|Win32">
+      <Configuration>R_St</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{1630C0CD-099D-4FB6-A57B-ED164DEC0FB1}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>sfx</RootNamespace>
+  </PropertyGroup>
+  <Import Project="cfg\vs\vs-ver.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <UseOfMfc>Static</UseOfMfc>
+    <PlatformToolset>v140</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='D_St|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <UseOfMfc>Static</UseOfMfc>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <UseOfMfc>Static</UseOfMfc>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='R_St|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">
+    <UseOfMfc>Static</UseOfMfc>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">
+    <UseOfMfc>Static</UseOfMfc>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <Import Project="cfg\vs\vs-inc.props" />
+  <ImportGroup Label="ExtensionSettings">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.props" />
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='D_St|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='R_St|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">
+    <LinkIncremental>true</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>USE_QT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>.;..\inc;secp256k1\include;univalue\include;..\foreign\bdb\dbinc;leveldb\helpers\memenv;..\foreign\libevent\win32-code;..\foreign\libevent;$(QT_PATH)\include\QtCore;$(QT_PATH)\include\QtGui;$(QT_PATH)\include\QtWidgets;$(QT_PATH)\include\QtNetwork;$(QT_PATH)\include;$(QT_PATH)\$(PlatformShortName)\include\QtCore;$(QT_PATH)\$(PlatformShortName)\include</AdditionalIncludeDirectories>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ForcedIncludeFiles>stdafx.h</ForcedIncludeFiles>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>..\$(PlatformShortName)_libs;$(QT_PATH)\$(PlatformShortName)\lib;$(QT_PATH)\$(PlatformShortName)\plugins\platforms</AdditionalLibraryDirectories>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+      <BaseAddress>0x10000000</BaseAddress>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <FixedBaseAddress>true</FixedBaseAddress>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>USE_QT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>.;..\inc;secp256k1\include;univalue\include;..\foreign\bdb\dbinc;leveldb\helpers\memenv;..\foreign\libevent\win32-code;..\foreign\libevent;$(QT_PATH)\include\QtCore;$(QT_PATH)\include\QtGui;$(QT_PATH)\include\QtWidgets;$(QT_PATH)\include\QtNetwork;$(QT_PATH)\include;$(QT_PATH)\$(PlatformShortName)\include\QtCore;$(QT_PATH)\$(PlatformShortName)\include</AdditionalIncludeDirectories>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ForcedIncludeFiles>stdafx.h</ForcedIncludeFiles>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>..\$(PlatformShortName)_libs;$(QT_PATH)\$(PlatformShortName)\lib;$(QT_PATH)\$(PlatformShortName)\plugins\platforms</AdditionalLibraryDirectories>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+      <BaseAddress>0x180000000</BaseAddress>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <FixedBaseAddress>true</FixedBaseAddress>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <Optimization>MinSpace</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>USE_QT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>.;..\inc;secp256k1\include;univalue\include;..\foreign\bdb\dbinc;leveldb\helpers\memenv;..\foreign\libevent\win32-code;..\foreign\libevent;$(QT_PATH)\include\QtCore;$(QT_PATH)\include\QtGui;$(QT_PATH)\include\QtWidgets;$(QT_PATH)\include\QtNetwork;$(QT_PATH)\include;$(QT_PATH)\$(PlatformShortName)\include\QtCore;$(QT_PATH)\$(PlatformShortName)\include</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>stdafx.h</ForcedIncludeFiles>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <FavorSizeOrSpeed>Size</FavorSizeOrSpeed>
+      <FunctionLevelLinking>false</FunctionLevelLinking>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <LinkTimeCodeGeneration>Default</LinkTimeCodeGeneration>
+      <AdditionalLibraryDirectories>..\$(PlatformShortName)_libs;$(QT_PATH)\$(PlatformShortName)\lib;$(QT_PATH)\$(PlatformShortName)\plugins\platforms</AdditionalLibraryDirectories>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+      <BaseAddress>0x10000000</BaseAddress>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <FixedBaseAddress>true</FixedBaseAddress>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>USE_QT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>.;..\inc;secp256k1\include;univalue\include;..\foreign\bdb\dbinc;leveldb\helpers\memenv;..\foreign\libevent\win32-code;..\foreign\libevent;$(QT_PATH)\include\QtCore;$(QT_PATH)\include\QtGui;$(QT_PATH)\include\QtWidgets;$(QT_PATH)\include\QtNetwork;$(QT_PATH)\include;$(QT_PATH)\$(PlatformShortName)\include\QtCore;$(QT_PATH)\$(PlatformShortName)\include</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>stdafx.h</ForcedIncludeFiles>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">
+    <ClCompile>
+      <Optimization>MinSpace</Optimization>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <FavorSizeOrSpeed>Size</FavorSizeOrSpeed>
+      <FunctionLevelLinking>false</FunctionLevelLinking>
+    </ClCompile>
+    <Link>
+      <LinkTimeCodeGeneration>Default</LinkTimeCodeGeneration>
+      <AdditionalLibraryDirectories>..\$(PlatformShortName)_libs;$(QT_PATH)\$(PlatformShortName)\lib;$(QT_PATH)\$(PlatformShortName)\plugins\platforms</AdditionalLibraryDirectories>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+      <BaseAddress>0x180000000</BaseAddress>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <FixedBaseAddress>true</FixedBaseAddress>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\foreign\qrencode\bitstream.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">NotUsing</PrecompiledHeader>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">qrcode-config.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">qrcode-config.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">qrcode-config.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">qrcode-config.h</ForcedIncludeFiles>
+    </ClCompile>
+    <ClCompile Include="..\foreign\qrencode\mask.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">NotUsing</PrecompiledHeader>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">qrcode-config.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">qrcode-config.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">qrcode-config.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">qrcode-config.h</ForcedIncludeFiles>
+    </ClCompile>
+    <ClCompile Include="..\foreign\qrencode\mmask.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">NotUsing</PrecompiledHeader>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">qrcode-config.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">qrcode-config.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">qrcode-config.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">qrcode-config.h</ForcedIncludeFiles>
+    </ClCompile>
+    <ClCompile Include="..\foreign\qrencode\mqrspec.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">NotUsing</PrecompiledHeader>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">qrcode-config.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">qrcode-config.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">qrcode-config.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">qrcode-config.h</ForcedIncludeFiles>
+    </ClCompile>
+    <ClCompile Include="..\foreign\qrencode\qrencode.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">NotUsing</PrecompiledHeader>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">qrcode-config.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">qrcode-config.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">qrcode-config.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">qrcode-config.h</ForcedIncludeFiles>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">
+      </PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">
+      </PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">
+      </PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">
+      </PreprocessorDefinitions>
+    </ClCompile>
+    <ClCompile Include="..\foreign\qrencode\qrinput.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">NotUsing</PrecompiledHeader>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">qrcode-config.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">qrcode-config.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">qrcode-config.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">qrcode-config.h</ForcedIncludeFiles>
+    </ClCompile>
+    <ClCompile Include="..\foreign\qrencode\qrspec.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">NotUsing</PrecompiledHeader>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">qrcode-config.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">qrcode-config.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">qrcode-config.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">qrcode-config.h</ForcedIncludeFiles>
+    </ClCompile>
+    <ClCompile Include="..\foreign\qrencode\rscode.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">NotUsing</PrecompiledHeader>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">qrcode-config.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">qrcode-config.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">qrcode-config.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">qrcode-config.h</ForcedIncludeFiles>
+    </ClCompile>
+    <ClCompile Include="..\foreign\qrencode\split.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">NotUsing</PrecompiledHeader>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">qrcode-config.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">qrcode-config.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">qrcode-config.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">qrcode-config.h</ForcedIncludeFiles>
+    </ClCompile>
+    <ClCompile Include="addrdb.cpp" />
+    <ClCompile Include="blockencodings.cpp" />
+    <ClCompile Include="consensus\merkle.cpp" />
+    <ClCompile Include="crypto\aes.cpp" />
+    <ClCompile Include="crypto\hmac_sha256.cpp" />
+    <ClCompile Include="dbwrapper.cpp" />
+    <ClCompile Include="soferox-cli.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="soferox-dll.cpp" />
+    <ClCompile Include="soferox-hash.cpp" />
+    <ClCompile Include="soferox-tx.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="soferoxd.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="httprpc.cpp" />
+    <ClCompile Include="httpserver.cpp" />
+    <ClCompile Include="netaddress.cpp" />
+    <ClCompile Include="net_processing.cpp" />
+    <ClCompile Include="policy\rbf.cpp" />
+    <ClCompile Include="qt\addressbookpage.cpp" />
+    <ClCompile Include="qt\addresstablemodel.cpp" />
+    <ClCompile Include="qt\askpassphrasedialog.cpp" />
+    <ClCompile Include="qt\bantablemodel.cpp" />
+    <ClCompile Include="qt\bitcoin.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="qt\bitcoinaddressvalidator.cpp" />
+    <ClCompile Include="qt\bitcoinamountfield.cpp" />
+    <ClCompile Include="qt\bitcoingui.cpp" />
+    <ClCompile Include="qt\bitcoinunits.cpp" />
+    <ClCompile Include="qt\clientmodel.cpp" />
+    <ClCompile Include="qt\coincontroldialog.cpp" />
+    <ClCompile Include="qt\coincontroltreewidget.cpp" />
+    <ClCompile Include="qt\csvmodelwriter.cpp" />
+    <ClCompile Include="qt\editaddressdialog.cpp" />
+    <ClCompile Include="qt\guiutil.cpp" />
+    <ClCompile Include="qt\intro.cpp" />
+    <ClCompile Include="qt\moc_addressbookpage.cpp" />
+    <ClCompile Include="qt\moc_addresstablemodel.cpp" />
+    <ClCompile Include="qt\moc_askpassphrasedialog.cpp" />
+    <ClCompile Include="qt\moc_bantablemodel.cpp" />
+    <ClCompile Include="qt\moc_bitcoinaddressvalidator.cpp" />
+    <ClCompile Include="qt\moc_bitcoinamountfield.cpp" />
+    <ClCompile Include="qt\moc_bitcoingui.cpp" />
+    <ClCompile Include="qt\moc_bitcoinunits.cpp" />
+    <ClCompile Include="qt\moc_clientmodel.cpp" />
+    <ClCompile Include="qt\moc_coincontroldialog.cpp" />
+    <ClCompile Include="qt\moc_coincontroltreewidget.cpp" />
+    <ClCompile Include="qt\moc_csvmodelwriter.cpp" />
+    <ClCompile Include="qt\moc_editaddressdialog.cpp" />
+    <ClCompile Include="qt\moc_guiutil.cpp" />
+    <ClCompile Include="qt\moc_intro.cpp" />
+    <ClCompile Include="qt\moc_modaloverlay.cpp" />
+    <ClCompile Include="qt\moc_notificator.cpp" />
+    <ClCompile Include="qt\moc_openuridialog.cpp" />
+    <ClCompile Include="qt\moc_optionsdialog.cpp" />
+    <ClCompile Include="qt\moc_optionsmodel.cpp" />
+    <ClCompile Include="qt\moc_overviewpage.cpp" />
+    <ClCompile Include="qt\moc_paymentserver.cpp" />
+    <ClCompile Include="qt\moc_peertablemodel.cpp" />
+    <ClCompile Include="qt\moc_qvalidatedlineedit.cpp" />
+    <ClCompile Include="qt\moc_qvaluecombobox.cpp" />
+    <ClCompile Include="qt\moc_receivecoinsdialog.cpp" />
+    <ClCompile Include="qt\moc_receiverequestdialog.cpp" />
+    <ClCompile Include="qt\moc_recentrequeststablemodel.cpp" />
+    <ClCompile Include="qt\moc_rpcconsole.cpp" />
+    <ClCompile Include="qt\moc_sendcoinsdialog.cpp" />
+    <ClCompile Include="qt\moc_sendcoinsentry.cpp" />
+    <ClCompile Include="qt\moc_signverifymessagedialog.cpp" />
+    <ClCompile Include="qt\moc_splashscreen.cpp" />
+    <ClCompile Include="qt\moc_trafficgraphwidget.cpp" />
+    <ClCompile Include="qt\moc_transactiondesc.cpp" />
+    <ClCompile Include="qt\moc_transactiondescdialog.cpp" />
+    <ClCompile Include="qt\moc_transactionfilterproxy.cpp" />
+    <ClCompile Include="qt\moc_transactiontablemodel.cpp" />
+    <ClCompile Include="qt\moc_transactionview.cpp" />
+    <ClCompile Include="qt\moc_utilitydialog.cpp" />
+    <ClCompile Include="qt\moc_walletframe.cpp" />
+    <ClCompile Include="qt\moc_walletmodel.cpp" />
+    <ClCompile Include="qt\moc_walletview.cpp" />
+    <ClCompile Include="qt\modaloverlay.cpp" />
+    <ClCompile Include="qt\networkstyle.cpp" />
+    <ClCompile Include="qt\notificator.cpp" />
+    <ClCompile Include="qt\openuridialog.cpp" />
+    <ClCompile Include="qt\optionsdialog.cpp" />
+    <ClCompile Include="qt\optionsmodel.cpp" />
+    <ClCompile Include="qt\overviewpage.cpp" />
+    <ClCompile Include="qt\paymentrequest.pb.cc" />
+    <ClCompile Include="qt\paymentrequestplus.cpp" />
+    <ClCompile Include="qt\paymentserver.cpp" />
+    <ClCompile Include="qt\peertablemodel.cpp" />
+    <ClCompile Include="qt\platformstyle.cpp" />
+    <ClCompile Include="qt\qvalidatedlineedit.cpp" />
+    <ClCompile Include="qt\qvaluecombobox.cpp" />
+    <ClCompile Include="qt\receivecoinsdialog.cpp" />
+    <ClCompile Include="qt\receiverequestdialog.cpp" />
+    <ClCompile Include="qt\recentrequeststablemodel.cpp" />
+    <ClCompile Include="qt\res_bitcoin.cpp" />
+    <ClCompile Include="qt\res_bitcoin_locale.cpp" />
+    <ClCompile Include="qt\rpcconsole.cpp" />
+    <ClCompile Include="qt\sendcoinsdialog.cpp" />
+    <ClCompile Include="qt\sendcoinsentry.cpp" />
+    <ClCompile Include="qt\signverifymessagedialog.cpp" />
+    <ClCompile Include="qt\splashscreen.cpp" />
+    <ClCompile Include="qt\trafficgraphwidget.cpp" />
+    <ClCompile Include="qt\transactiondesc.cpp" />
+    <ClCompile Include="qt\transactiondescdialog.cpp" />
+    <ClCompile Include="qt\transactionfilterproxy.cpp" />
+    <ClCompile Include="qt\transactionrecord.cpp" />
+    <ClCompile Include="qt\transactiontablemodel.cpp" />
+    <ClCompile Include="qt\transactionview.cpp" />
+    <ClCompile Include="qt\utilitydialog.cpp" />
+    <ClCompile Include="qt\walletframe.cpp" />
+    <ClCompile Include="qt\walletmodel.cpp" />
+    <ClCompile Include="qt\walletmodeltransaction.cpp" />
+    <ClCompile Include="qt\walletview.cpp" />
+    <ClCompile Include="qt\winshutdownmonitor.cpp" />
+    <ClCompile Include="rpc\blockchain.cpp" />
+    <ClCompile Include="rpc\client.cpp" />
+    <ClCompile Include="rpc\mining.cpp" />
+    <ClCompile Include="rpc\misc.cpp" />
+    <ClCompile Include="rpc\net.cpp">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">$(IntDir)\%(RelativeDir)</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">$(IntDir)\%(RelativeDir)</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">$(IntDir)\%(RelativeDir)</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">$(IntDir)\%(RelativeDir)</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="rpc\protocol.cpp">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">$(IntDir)\%(RelativeDir)</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">$(IntDir)\%(RelativeDir)</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">$(IntDir)\%(RelativeDir)</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">$(IntDir)\%(RelativeDir)</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="rpc\rawtransaction.cpp" />
+    <ClCompile Include="rpc\server.cpp" />
+    <ClCompile Include="script\ismine.cpp" />
+    <ClCompile Include="secp256k1\src\secp256k1.c">
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">libsecp256k1-cfg.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">libsecp256k1-cfg.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">libsecp256k1-cfg.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">libsecp256k1-cfg.h</ForcedIncludeFiles>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">NotUsing</PrecompiledHeader>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">.;..\inc;..\foreign\bdb\dbinc;secp256k1</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">.;..\inc;..\foreign\bdb\dbinc;secp256k1</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">.;..\inc;..\foreign\bdb\dbinc;secp256k1</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">.;..\inc;..\foreign\bdb\dbinc;secp256k1</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="addrman.cpp" />
+    <ClCompile Include="amount.cpp" />
+    <ClCompile Include="arith_uint256.cpp" />
+    <ClCompile Include="base58.cpp" />
+    <ClCompile Include="bloom.cpp" />
+    <ClCompile Include="chain.cpp" />
+    <ClCompile Include="chainparamsbase.cpp" />
+    <ClCompile Include="checkpoints.cpp" />
+    <ClCompile Include="clientversion.cpp" />
+    <ClCompile Include="coins.cpp" />
+    <ClCompile Include="compat\glibcxx_sanity.cpp" />
+    <ClCompile Include="compat\glibc_sanity.cpp" />
+    <ClCompile Include="compat\vc_compat.cpp" />
+    <ClCompile Include="compressor.cpp" />
+    <ClCompile Include="core_read.cpp" />
+    <ClCompile Include="core_write.cpp" />
+    <ClCompile Include="crypto\hmac_sha512.cpp">
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">MinSpace</Optimization>
+      <FavorSizeOrSpeed Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">Size</FavorSizeOrSpeed>
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">MinSpace</Optimization>
+      <FavorSizeOrSpeed Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">Size</FavorSizeOrSpeed>
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">MinSpace</Optimization>
+      <FavorSizeOrSpeed Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">Size</FavorSizeOrSpeed>
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">MinSpace</Optimization>
+      <FavorSizeOrSpeed Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">Size</FavorSizeOrSpeed>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="crypto\ripemd160.cpp">
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">MinSpace</Optimization>
+      <FavorSizeOrSpeed Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">Size</FavorSizeOrSpeed>
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">MinSpace</Optimization>
+      <FavorSizeOrSpeed Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">Size</FavorSizeOrSpeed>
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">MinSpace</Optimization>
+      <FavorSizeOrSpeed Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">Size</FavorSizeOrSpeed>
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">MinSpace</Optimization>
+      <FavorSizeOrSpeed Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">Size</FavorSizeOrSpeed>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="crypto\sha1.cpp">
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">MinSpace</Optimization>
+      <FavorSizeOrSpeed Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">Size</FavorSizeOrSpeed>
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">MinSpace</Optimization>
+      <FavorSizeOrSpeed Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">Size</FavorSizeOrSpeed>
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">MinSpace</Optimization>
+      <FavorSizeOrSpeed Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">Size</FavorSizeOrSpeed>
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">MinSpace</Optimization>
+      <FavorSizeOrSpeed Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">Size</FavorSizeOrSpeed>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="crypto\sha256.cpp">
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">MinSpace</Optimization>
+      <FavorSizeOrSpeed Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">Size</FavorSizeOrSpeed>
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">MinSpace</Optimization>
+      <FavorSizeOrSpeed Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">Size</FavorSizeOrSpeed>
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">MinSpace</Optimization>
+      <FavorSizeOrSpeed Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">Size</FavorSizeOrSpeed>
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">MinSpace</Optimization>
+      <FavorSizeOrSpeed Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">Size</FavorSizeOrSpeed>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="crypto\sha512.cpp">
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">MinSpace</Optimization>
+      <FavorSizeOrSpeed Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">Size</FavorSizeOrSpeed>
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">MinSpace</Optimization>
+      <FavorSizeOrSpeed Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">Size</FavorSizeOrSpeed>
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">MinSpace</Optimization>
+      <FavorSizeOrSpeed Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">Size</FavorSizeOrSpeed>
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">MinSpace</Optimization>
+      <FavorSizeOrSpeed Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">Size</FavorSizeOrSpeed>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="soferox.cpp" />
+    <ClCompile Include="hash.cpp" />
+    <ClCompile Include="init.cpp" />
+    <ClCompile Include="key.cpp">
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">..\inc;secp256k1\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">..\inc;secp256k1\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">..\inc;secp256k1\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">..\inc;secp256k1\include</AdditionalIncludeDirectories>
+    </ClCompile>
+    <ClCompile Include="keystore.cpp" />
+    <ClCompile Include="merkleblock.cpp" />
+    <ClCompile Include="miner.cpp" />
+    <ClCompile Include="net.cpp">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">$(IntDir)\%(RelativeDir)</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">$(IntDir)\%(RelativeDir)</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">$(IntDir)\%(RelativeDir)</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">$(IntDir)\%(RelativeDir)</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="netbase.cpp" />
+    <ClCompile Include="noui.cpp" />
+    <ClCompile Include="policy\fees.cpp" />
+    <ClCompile Include="policy\policy.cpp" />
+    <ClCompile Include="pow.cpp" />
+    <ClCompile Include="primitives\block.cpp" />
+    <ClCompile Include="primitives\transaction.cpp" />
+    <ClCompile Include="protocol.cpp">
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">$(IntDir)\%(RelativeDir)</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">$(IntDir)\%(RelativeDir)</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">$(IntDir)\%(RelativeDir)</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">$(IntDir)\%(RelativeDir)</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="pubkey.cpp" />
+    <ClCompile Include="random.cpp" />
+    <ClCompile Include="rest.cpp" />
+    <ClCompile Include="scheduler.cpp" />
+    <ClCompile Include="script\interpreter.cpp" />
+    <ClCompile Include="script\script.cpp" />
+    <ClCompile Include="script\script_error.cpp" />
+    <ClCompile Include="script\sigcache.cpp" />
+    <ClCompile Include="script\sign.cpp" />
+    <ClCompile Include="script\standard.cpp" />
+    <ClCompile Include="sphlib\sofero.cpp">
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">
+      </ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">
+      </ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">
+      </ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">
+      </ForcedIncludeFiles>
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">MaxSpeed</Optimization>
+      <FavorSizeOrSpeed Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">Speed</FavorSizeOrSpeed>
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">MaxSpeed</Optimization>
+      <FavorSizeOrSpeed Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">Speed</FavorSizeOrSpeed>
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">MaxSpeed</Optimization>
+      <FavorSizeOrSpeed Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">Speed</FavorSizeOrSpeed>
+      <Optimization Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">MaxSpeed</Optimization>
+      <FavorSizeOrSpeed Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">Speed</FavorSizeOrSpeed>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">Create</PrecompiledHeader>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">stdafx.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">stdafx.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">stdafx.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">stdafx.h</ForcedIncludeFiles>
+    </ClCompile>
+    <ClCompile Include="support\cleanse.cpp" />
+    <ClCompile Include="support\lockedpool.cpp" />
+    <ClCompile Include="threadinterrupt.cpp" />
+    <ClCompile Include="timedata.cpp" />
+    <ClCompile Include="torcontrol.cpp" />
+    <ClCompile Include="txdb.cpp" />
+    <ClCompile Include="txmempool.cpp" />
+    <ClCompile Include="uint256.cpp" />
+    <ClCompile Include="ui_interface.cpp" />
+    <ClCompile Include="univalue\lib\univalue.cpp" />
+    <ClCompile Include="univalue\lib\univalue_read.cpp" />
+    <ClCompile Include="univalue\lib\univalue_write.cpp" />
+    <ClCompile Include="util.cpp" />
+    <ClCompile Include="utilmoneystr.cpp" />
+    <ClCompile Include="utilstrencodings.cpp" />
+    <ClCompile Include="utiltime.cpp" />
+    <ClCompile Include="validation.cpp" />
+    <ClCompile Include="validationinterface.cpp" />
+    <ClCompile Include="versionbits.cpp" />
+    <ClCompile Include="wallet\crypter.cpp" />
+    <ClCompile Include="wallet\db.cpp" />
+    <ClCompile Include="wallet\rpcdump.cpp" />
+    <ClCompile Include="wallet\rpcwallet.cpp" />
+    <ClCompile Include="wallet\wallet.cpp" />
+    <ClCompile Include="wallet\walletdb.cpp" />
+    <ClCompile Include="warnings.cpp" />
+    <ClCompile Include="win-libs.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="addrman.h" />
+    <ClInclude Include="alert.h" />
+    <ClInclude Include="base58.h" />
+    <ClInclude Include="bignum.h" />
+    <ClInclude Include="bloom.h" />
+    <ClInclude Include="chain.h" />
+    <ClInclude Include="chainparams.h" />
+    <ClInclude Include="chainparamsbase.h" />
+    <ClInclude Include="checkpoints.h" />
+    <ClInclude Include="clientversion.h" />
+    <ClInclude Include="coins.h" />
+    <ClInclude Include="compat\sanity.h" />
+    <ClInclude Include="compressor.h" />
+    <ClInclude Include="core_io.h" />
+    <ClInclude Include="crypto\hmac_sha512.h" />
+    <ClInclude Include="crypto\ripemd160.h" />
+    <ClInclude Include="crypto\sha1.h" />
+    <ClInclude Include="crypto\sha256.h" />
+    <ClInclude Include="crypto\sha512.h" />
+    <ClInclude Include="cuckoocache.h" />
+    <ClInclude Include="eccryptoverify.h" />
+    <ClInclude Include="soferox.h" />
+    <ClInclude Include="sfx-config.h" />
+    <ClInclude Include="hash.h" />
+    <ClInclude Include="init.h" />
+    <ClInclude Include="key.h" />
+    <ClInclude Include="keystore.h" />
+    <ClInclude Include="leveldbwrapper.h" />
+    <ClInclude Include="main.h" />
+    <ClInclude Include="merkleblock.h" />
+    <ClInclude Include="miner.h" />
+    <ClInclude Include="net.h" />
+    <ClInclude Include="netbase.h" />
+    <ClInclude Include="noui.h" />
+    <ClInclude Include="policy\fees.h" />
+    <ClInclude Include="policy\policy.h" />
+    <ClInclude Include="pow.h" />
+    <ClInclude Include="primitives\block.h" />
+    <ClInclude Include="primitives\transaction.h" />
+    <ClInclude Include="protocol.h" />
+    <ClInclude Include="pubkey.h" />
+    <ClInclude Include="random.h" />
+    <ClInclude Include="rpcclient.h" />
+    <ClInclude Include="rpcprotocol.h" />
+    <ClInclude Include="rpcserver.h" />
+    <ClInclude Include="scheduler.h" />
+    <ClInclude Include="script\interpreter.h" />
+    <ClInclude Include="script\script.h" />
+    <ClInclude Include="script\script_error.h" />
+    <ClInclude Include="script\sigcache.h" />
+    <ClInclude Include="script\sign.h" />
+    <ClInclude Include="script\standard.h" />
+    <ClInclude Include="support\cleanse.h" />
+    <ClInclude Include="support\pagelocker.h" />
+    <ClInclude Include="timedata.h" />
+    <ClInclude Include="tinyformat.h" />
+    <ClInclude Include="txdb.h" />
+    <ClInclude Include="txmempool.h" />
+    <ClInclude Include="uint256.h" />
+    <ClInclude Include="univalue\univalue.h" />
+    <ClInclude Include="util.h" />
+    <ClInclude Include="utilmoneystr.h" />
+    <ClInclude Include="utilstrencodings.h" />
+    <ClInclude Include="utiltime.h" />
+    <ClInclude Include="validationinterface.h" />
+    <ClInclude Include="wallet\crypter.h" />
+    <ClInclude Include="wallet\db.h" />
+    <ClInclude Include="wallet\wallet.h" />
+    <ClInclude Include="wallet\walletdb.h" />
+    <ClInclude Include="wallet\wallet_ismine.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <MASM Include="el\bignum\x86x64\bignum-x86x64.asm" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+    <Import Project="$(VCTargetsPath)\BuildCustomizations\masm.targets" />
+  </ImportGroup>
+</Project>

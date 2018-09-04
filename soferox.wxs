@@ -1,0 +1,113 @@
+<Wix xmlns='http://schemas.microsoft.com/wix/2006/wi' xmlns:netfx='http://schemas.microsoft.com/wix/NetFxExtension'>
+
+
+<?define UpgradeCode="76e20a64-ea63-4ac5-9729-05f8e607c45d"?>
+<?define PRODVER="2.13.3"?>
+
+<?if $(sys.BUILDARCH) = x64 ?>
+	<?define OUTDIR="x64_R_St\"?>
+<?else ?>
+	<?define OUTDIR="x86_R_St\"?>
+<?endif ?>
+
+<Product Name='Soferox Core' Id='*' UpgradeCode='$(var.UpgradeCode)' Version='$(var.PRODVER)' Manufacturer='Soferox' Language='1033' >
+	<Package Id='*' Keywords='Installer' Description="Soferox Core" Comments='Soferox Core' Manufacturer='Soferox' InstallerVersion='301' Compressed='yes'  />
+
+	<UIRef Id="WixUI_InstallDir" />
+
+
+	<Upgrade Id='$(var.UpgradeCode)'>
+		<UpgradeVersion OnlyDetect="yes" Minimum="$(var.PRODVER)" Property="NEWERVERSIONDETECTED" IncludeMinimum="no" />
+		<UpgradeVersion OnlyDetect="no" Maximum="99.0.0.0" Property="OLDERVERSIONBEINGUPGRADED" IncludeMaximum="no" />
+	</Upgrade>
+
+	<Icon Id="Soferox.ico" SourceFile="src\qt\res\icons\soferox.ico " />
+
+	<Property Id="ARPPRODUCTICON" Value="Soferox.ico" />
+	<Property Id='DiskPrompt' Value="Soferox Core" />
+	<Property Id="ARPHELPLINK" Value="http://www.soferox.org/downloads/" />
+	<Property Id="ARPURLINFOABOUT" Value="http://www.soferox.org/downloads/" />
+	<Property Id="ARPURLUPDATEINFO" Value="http://www.soferox.org/downloads/" />
+	<Property Id="LAUNCHPRODUCT">0</Property>
+	<Property Id="ARPNOREPAIR" Value="1" />
+<!--    <Property Id="WIXUI_INSTALLDIR" Value="INSTALLDIR" />-->
+
+	<Property Id="INSTALLDIR">
+		<RegistrySearch Id="FindInstallLocation" Root="HKLM" Key="Software\Microsoft\Windows\CurrentVersion\Uninstall\[OLDERVERSIONBEINGUPGRADED]" Name="InstallLocation" Type="raw" />
+	</Property>
+
+
+	<Directory Id='TARGETDIR' Name='SourceDir'>
+<?if $(sys.BUILDARCH) = x64 ?>
+		<Directory Id='ProgramFiles64Folder' Name='PFiles'>
+			<Directory Id='INSTALLDIR' Name='Soferox'>
+	   			<Directory Id='DAEMON' Name='daemon' />
+			</Directory>
+		</Directory>
+<?else ?>
+		<Directory Id='ProgramFilesFolder' Name='PFiles'>
+			<Directory Id='INSTALLDIR' Name='Soferox'>
+	   			<Directory Id='DAEMON' Name='daemon' />
+			</Directory>
+		</Directory>
+<?endif ?>
+
+		<Directory Id="ProgramMenuFolder">
+			<Directory Id="ApplicationProgramsFolder" Name="Soferox Core"/>
+		</Directory>
+		<Directory Id="DesktopFolder" Name="Desktop" />
+	</Directory>
+
+	<Media Id="1" Cabinet="soferox.cab" EmbedCab="yes"/>
+
+	<Component Id='CMP_SfxQt' Guid='a677466c-3dbe-476f-a225-eb19da78004d' Directory='INSTALLDIR' >
+		<File  Id="soferox_qt.exe" Source="$(var.OUTDIR)\soferox-qt.exe"    KeyPath='yes'       >
+<!--            <Shortcut Id="startmenuSoferox"     Directory="ProgramMenuFolder"   Name="Soferox Core" Icon="Soferox.ico" IconIndex="0" Advertise="yes" /> -->
+			<Shortcut Id="desktopSoferox"   Directory="DesktopFolder"       Name="Soferox Core" Icon="Soferox.ico" IconIndex="0" Advertise="yes" />
+		</File>
+		<Shortcut Id='UninstallProductFromInstallDir'     Name='Uninstall Soferox Core' Description='Uninstalls Soferox Core' Target='[System64Folder]msiexec.exe' Arguments="/x [ProductCode]" />
+	</Component>
+
+	<Component Id='CMP_SfxDaemon' Guid='32b21315-0f58-4af8-8f14-156645ecfad6' Directory='DAEMON' >
+		<File  Source="$(var.OUTDIR)\soferoxd.exe"  KeyPath='yes'       />
+		<File  Source="$(var.OUTDIR)\soferox-cli.exe"           />
+		<File  Source="$(var.OUTDIR)\soferox-tx.exe"           />
+	</Component>
+
+	<DirectoryRef Id="ApplicationProgramsFolder">
+		<Component Id='CMP_ApplicationShortcut' Guid='ed335276-6250-4832-98b3-3694ff8beaee'>
+			<Shortcut Id="startmenuSoferox" Name="Soferox Core" Target="[#soferox_qt.exe]" Icon="Soferox.ico" IconIndex="0" Advertise="no" />
+			<Shortcut Id='UninstallProduct'     Name='Uninstall Soferox Core' Description='Uninstalls Soferox Core' Target='[System64Folder]msiexec.exe' Arguments="/x [ProductCode]" />
+			<RemoveFolder Id="ApplicationProgramsFolder" On="uninstall"/>
+			<RegistryValue Root="HKCU" Key="Software\Soferox" Name="installed" Type="integer" Value="1" KeyPath="yes"/>
+		</Component>
+	</DirectoryRef>
+
+	<CustomAction Id="NewerVersionDetected" Error="There is a later version of this product installed"/>
+	<CustomAction Id="SetARPINSTALLLOCATION" Property="ARPINSTALLLOCATION" Value="[INSTALLDIR]" />
+	<CustomAction Id='LaunchFile' FileKey='soferox_qt.exe' ExeCommand='' Return="asyncNoWait" />
+
+	<InstallUISequence>
+		<AppSearch After="FindRelatedProducts"/>
+	</InstallUISequence>
+
+	<InstallExecuteSequence>
+		<Custom Action="NewerVersionDetected" After="FindRelatedProducts">NEWERVERSIONDETECTED</Custom>
+		<RemoveExistingProducts After="InstallInitialize" />
+		<InstallFiles/>
+		<Custom Action="SetARPINSTALLLOCATION" After="InstallValidate"></Custom>
+		<SelfRegModules/>
+<!--        <Custom Action='LaunchFile' After='InstallFinalize'>LAUNCHPRODUCT</Custom>  -->
+	</InstallExecuteSequence>
+
+
+	<Property Id="WIXUI_INSTALLDIR" Value="INSTALLDIR" />
+
+	<Feature Id='Complete' Level='1' Title='Soferox Core'>
+		<ComponentRef Id='CMP_SfxQt'				/>
+		<ComponentRef Id='CMP_SfxDaemon'			/>
+		<ComponentRef Id='CMP_ApplicationShortcut'	/>
+	</Feature>
+
+</Product>
+</Wix>

@@ -1,0 +1,92 @@
+#!/sbin/runscript
+
+# backward compatibility for existing gentoo layout 
+#
+if [ -d "/var/lib/soferox/.soferox" ]; then
+	SOFEROXD_DEFAULT_DATADIR="/var/lib/soferox/.soferox"
+else
+	SOFEROXD_DEFAULT_DATADIR="/var/lib/soferoxd"
+fi
+
+SOFEROXD_CONFIGFILE=${SOFEROXD_CONFIGFILE:-/etc/soferox/soferox.conf}
+SOFEROXD_PIDDIR=${SOFEROXD_PIDDIR:-/var/run/soferoxd}
+SOFEROXD_PIDFILE=${SOFEROXD_PIDFILE:-${SOFEROXD_PIDDIR}/soferoxd.pid}
+SOFEROXD_DATADIR=${SOFEROXD_DATADIR:-${SOFEROXD_DEFAULT_DATADIR}}
+SOFEROXD_USER=${SOFEROXD_USER:-${SOFEROX_USER:-soferox}}
+SOFEROXD_GROUP=${SOFEROXD_GROUP:-soferox}
+SOFEROXD_BIN=${SOFEROXD_BIN:-/usr/bin/soferoxd}
+SOFEROXD_NICE=${SOFEROXD_NICE:-${NICELEVEL:-0}}
+SOFEROXD_OPTS="${SOFEROXD_OPTS:-${SOFEROX_OPTS}}"
+
+name="Soferox Core Daemon"
+description="Soferox cryptocurrency P2P network daemon"
+
+command="/usr/bin/soferoxd"
+command_args="-pid=\"${SOFEROXD_PIDFILE}\" \
+		-conf=\"${SOFEROXD_CONFIGFILE}\" \
+		-datadir=\"${SOFEROXD_DATADIR}\" \
+		-daemon \
+		${SOFEROXD_OPTS}"
+
+required_files="${SOFEROXD_CONFIGFILE}"
+start_stop_daemon_args="-u ${SOFEROXD_USER} \
+			-N ${SOFEROXD_NICE} -w 2000"
+pidfile="${SOFEROXD_PIDFILE}"
+
+# The retry schedule to use when stopping the daemon. Could be either
+# a timeout in seconds or multiple signal/timeout pairs (like
+# "SIGKILL/180 SIGTERM/300")
+retry="${SOFEROXD_SIGTERM_TIMEOUT}"
+
+depend() {
+	need localmount net
+}
+
+# verify
+# 1) that the datadir exists and is writable (or create it)
+# 2) that a directory for the pid exists and is writable
+# 3) ownership and permissions on the config file
+start_pre() {
+	checkpath \
+	-d \
+	--mode 0750 \
+	--owner "${SOFEROXD_USER}:${SOFEROXD_GROUP}" \
+	"${SOFEROXD_DATADIR}"
+
+	checkpath \
+	-d \
+	--mode 0755 \
+	--owner "${SOFEROXD_USER}:${SOFEROXD_GROUP}" \
+	"${SOFEROXD_PIDDIR}"
+
+	checkpath -f \
+	-o ${SOFEROXD_USER}:${SOFEROXD_GROUP} \
+	-m 0660 \
+	${SOFEROXD_CONFIGFILE}
+
+	checkconfig || return 1
+}
+
+checkconfig()
+{
+	if ! grep -qs '^rpcpassword=' "${SOFEROXD_CONFIGFILE}" ; then
+		eerror ""
+		eerror "ERROR: You must set a secure rpcpassword to run soferoxd."
+		eerror "The setting must appear in ${SOFEROXD_CONFIGFILE}"
+		eerror ""
+		eerror "This password is security critical to securing wallets "
+		eerror "and must not be the same as the rpcuser setting."
+		eerror "You can generate a suitable random password using the following"
+		eerror "command from the shell:"
+		eerror ""
+		eerror "bash -c 'tr -dc a-zA-Z0-9 < /dev/urandom | head -c32 && echo'"
+		eerror ""
+		eerror "It is also recommended that you also set alertnotify so you are "
+		eerror "notified of problems:"
+		eerror ""
+		eerror "ie: alertnotify=echo %%s | mail -s \"Soferox Alert\"" \
+			"admin@foo.com"
+		eerror ""
+		return 1
+	fi
+}

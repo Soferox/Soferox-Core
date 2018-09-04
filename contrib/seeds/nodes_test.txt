@@ -1,0 +1,5 @@
+# List of fixed seed nodes for testnet
+
+4ob2v2hpht6krdta.onion:16644
+7bmwzyc2faisc7ct.onion:16644
+

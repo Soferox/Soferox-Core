@@ -1,0 +1,618 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="D_St|Win32">
+      <Configuration>D_St</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="D_St|x64">
+      <Configuration>D_St</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="R_St|x64">
+      <Configuration>R_St</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="R_St|Win32">
+      <Configuration>R_St</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{2620C0CD-299D-4FB6-A59B-ED164DEC0FB1}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>sfx</RootNamespace>
+  </PropertyGroup>
+  <Import Project="cfg\vs\vs-ver.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <UseOfMfc>Static</UseOfMfc>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='D_St|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <UseOfMfc>Static</UseOfMfc>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+    <UseOfMfc>Static</UseOfMfc>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='R_St|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">
+    <UseOfMfc>Static</UseOfMfc>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">
+    <UseOfMfc>Static</UseOfMfc>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <Import Project="cfg\vs\vs-inc.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='D_St|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='R_St|x64'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">
+    <LinkIncremental>false</LinkIncremental>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>USE_QT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>.;..\inc;univalue\include;..\foreign\bdb\dbinc;$(QT_PATH)\include\QtCore;$(QT_PATH)\include\QtGui;$(QT_PATH)\include\QtWidgets;$(QT_PATH)\include\QtNetwork;$(QT_PATH)\include;$(QT_PATH)\$(PlatformShortName)\include\QtCore;$(QT_PATH)\$(PlatformShortName)\include</AdditionalIncludeDirectories>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ForcedIncludeFiles>qt\stdafx.h</ForcedIncludeFiles>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PrecompiledHeaderFile>qt\stdafx.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(OutDir);..\$(PlatformShortName)_libs;$(QT_PATH)\$(PlatformShortName)\lib;$(QT_PATH)\$(PlatformShortName)\plugins\platforms</AdditionalLibraryDirectories>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+      <AdditionalDependencies>
+      </AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">
+    <ClCompile>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>USE_QT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>.;..\inc;univalue\include;..\foreign\bdb\dbinc;$(QT_PATH)\include\QtCore;$(QT_PATH)\include\QtGui;$(QT_PATH)\include\QtWidgets;$(QT_PATH)\include\QtNetwork;$(QT_PATH)\include;$(QT_PATH)\$(PlatformShortName)\include\QtCore;$(QT_PATH)\$(PlatformShortName)\include</AdditionalIncludeDirectories>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ForcedIncludeFiles>qt\stdafx.h</ForcedIncludeFiles>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PrecompiledHeaderFile>qt\stdafx.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>$(OutDir);..\$(PlatformShortName)_libs;$(QT_PATH)\$(PlatformShortName)\lib;$(QT_PATH)\$(PlatformShortName)\plugins\platforms</AdditionalLibraryDirectories>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+      <AdditionalDependencies>
+      </AdditionalDependencies>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <Optimization>MinSpace</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>USE_QT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>.;..\inc;univalue\include;..\foreign\bdb\dbinc;$(QT_PATH)\include\QtCore;$(QT_PATH)\include\QtGui;$(QT_PATH)\include\QtWidgets;$(QT_PATH)\include\QtNetwork;$(QT_PATH)\include;$(QT_PATH)\$(PlatformShortName)\include\QtCore;$(QT_PATH)\$(PlatformShortName)\include</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>qt\stdafx.h</ForcedIncludeFiles>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <FavorSizeOrSpeed>Size</FavorSizeOrSpeed>
+      <FunctionLevelLinking>false</FunctionLevelLinking>
+      <PrecompiledHeaderFile>qt\stdafx.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <LinkTimeCodeGeneration>Default</LinkTimeCodeGeneration>
+      <AdditionalLibraryDirectories>$(OutDir);..\$(PlatformShortName)_libs;$(QT_PATH)\$(PlatformShortName)\lib;$(QT_PATH)\$(PlatformShortName)\plugins\platforms</AdditionalLibraryDirectories>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+      <AdditionalDependencies>
+      </AdditionalDependencies>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>USE_QT;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>.;..\inc;univalue\include;..\foreign\bdb\dbinc;$(QT_PATH)\include\QtCore;$(QT_PATH)\include\QtGui;$(QT_PATH)\include\QtWidgets;$(QT_PATH)\include\QtNetwork;$(QT_PATH)\include;$(QT_PATH)\$(PlatformShortName)\include\QtCore;$(QT_PATH)\$(PlatformShortName)\include</AdditionalIncludeDirectories>
+      <ForcedIncludeFiles>qt\stdafx.h</ForcedIncludeFiles>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">
+    <ClCompile>
+      <Optimization>MinSpace</Optimization>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <FavorSizeOrSpeed>Size</FavorSizeOrSpeed>
+      <FunctionLevelLinking>false</FunctionLevelLinking>
+      <PrecompiledHeaderFile>qt\stdafx.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <Link>
+      <LinkTimeCodeGeneration>Default</LinkTimeCodeGeneration>
+      <AdditionalLibraryDirectories>$(OutDir);..\$(PlatformShortName)_libs;$(QT_PATH)\$(PlatformShortName)\lib;$(QT_PATH)\$(PlatformShortName)\plugins\platforms</AdditionalLibraryDirectories>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
+      <AdditionalDependencies>
+      </AdditionalDependencies>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="..\foreign\qrencode\bitstream.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">NotUsing</PrecompiledHeader>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">qrcode-config.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">qrcode-config.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">qrcode-config.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">qrcode-config.h</ForcedIncludeFiles>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">$(IntDir)</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">$(IntDir)</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">$(IntDir)</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="..\foreign\qrencode\mask.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">NotUsing</PrecompiledHeader>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">qrcode-config.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">qrcode-config.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">qrcode-config.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">qrcode-config.h</ForcedIncludeFiles>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">$(IntDir)</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">$(IntDir)</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">$(IntDir)</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="..\foreign\qrencode\mmask.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">NotUsing</PrecompiledHeader>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">qrcode-config.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">qrcode-config.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">qrcode-config.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">qrcode-config.h</ForcedIncludeFiles>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">$(IntDir)</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">$(IntDir)</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">$(IntDir)</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="..\foreign\qrencode\mqrspec.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">NotUsing</PrecompiledHeader>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">qrcode-config.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">qrcode-config.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">qrcode-config.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">qrcode-config.h</ForcedIncludeFiles>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">$(IntDir)</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">$(IntDir)</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">$(IntDir)</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="..\foreign\qrencode\qrencode.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">NotUsing</PrecompiledHeader>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">qrcode-config.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">qrcode-config.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">qrcode-config.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">qrcode-config.h</ForcedIncludeFiles>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">
+      </PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">
+      </PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">
+      </PreprocessorDefinitions>
+      <PreprocessorDefinitions Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">
+      </PreprocessorDefinitions>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">$(IntDir)</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">$(IntDir)</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">$(IntDir)</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="..\foreign\qrencode\qrinput.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">NotUsing</PrecompiledHeader>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">qrcode-config.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">qrcode-config.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">qrcode-config.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">qrcode-config.h</ForcedIncludeFiles>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">$(IntDir)</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">$(IntDir)</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">$(IntDir)</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="..\foreign\qrencode\qrspec.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">NotUsing</PrecompiledHeader>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">qrcode-config.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">qrcode-config.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">qrcode-config.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">qrcode-config.h</ForcedIncludeFiles>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">$(IntDir)</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">$(IntDir)</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">$(IntDir)</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="..\foreign\qrencode\rscode.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">NotUsing</PrecompiledHeader>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">qrcode-config.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">qrcode-config.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">qrcode-config.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">qrcode-config.h</ForcedIncludeFiles>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">$(IntDir)</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">$(IntDir)</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">$(IntDir)</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="..\foreign\qrencode\split.c">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">NotUsing</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">NotUsing</PrecompiledHeader>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">qrcode-config.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">qrcode-config.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">qrcode-config.h</ForcedIncludeFiles>
+      <ForcedIncludeFiles Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">qrcode-config.h</ForcedIncludeFiles>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">$(IntDir)</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">$(IntDir)</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">$(IntDir)</ObjectFileName>
+      <ObjectFileName Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ClCompile Include="qt\addressbookpage.cpp" />
+    <ClCompile Include="qt\addresstablemodel.cpp" />
+    <ClCompile Include="qt\askpassphrasedialog.cpp" />
+    <ClCompile Include="qt\bantablemodel.cpp" />
+    <ClCompile Include="qt\bitcoin.cpp">
+      <Command Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">moc.exe %(FullPath)  -o %(RelativeDir)%(Filename).moc</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">moc.exe %(FullPath)  -o %(RelativeDir)%(Filename).moc</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">moc.exe %(FullPath)  -o %(RelativeDir)%(Filename).moc</Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">moc.exe %(FullPath)  -o %(RelativeDir)%(Filename).moc</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">%(RelativeDir)%(Filename).moc</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">%(RelativeDir)%(Filename).moc</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">%(RelativeDir)%(Filename).moc</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">%(RelativeDir)%(Filename).moc</Outputs>
+    </ClCompile>
+    <ClCompile Include="qt\bitcoinaddressvalidator.cpp" />
+    <ClCompile Include="qt\bitcoinamountfield.cpp" />
+    <ClCompile Include="qt\bitcoingui.cpp" />
+    <ClCompile Include="qt\bitcoinstrings.cpp" />
+    <ClCompile Include="qt\bitcoinunits.cpp" />
+    <ClCompile Include="qt\clientmodel.cpp" />
+    <ClCompile Include="qt\coincontroldialog.cpp" />
+    <ClCompile Include="qt\coincontroltreewidget.cpp" />
+    <ClCompile Include="qt\csvmodelwriter.cpp" />
+    <ClCompile Include="qt\editaddressdialog.cpp" />
+    <ClCompile Include="qt\guiutil.cpp" />
+    <ClCompile Include="qt\intro.cpp" />
+    <ClCompile Include="qt\moc_addressbookpage.cpp" />
+    <ClCompile Include="qt\moc_addresstablemodel.cpp" />
+    <ClCompile Include="qt\moc_askpassphrasedialog.cpp" />
+    <ClCompile Include="qt\moc_bantablemodel.cpp" />
+    <ClCompile Include="qt\moc_bitcoinaddressvalidator.cpp" />
+    <ClCompile Include="qt\moc_bitcoinamountfield.cpp" />
+    <ClCompile Include="qt\moc_bitcoingui.cpp" />
+    <ClCompile Include="qt\moc_bitcoinunits.cpp" />
+    <ClCompile Include="qt\moc_clientmodel.cpp" />
+    <ClCompile Include="qt\moc_coincontroldialog.cpp" />
+    <ClCompile Include="qt\moc_coincontroltreewidget.cpp" />
+    <ClCompile Include="qt\moc_csvmodelwriter.cpp" />
+    <ClCompile Include="qt\moc_editaddressdialog.cpp" />
+    <ClCompile Include="qt\moc_guiutil.cpp" />
+    <ClCompile Include="qt\moc_intro.cpp" />
+    <ClCompile Include="qt\moc_modaloverlay.cpp" />
+    <ClCompile Include="qt\moc_notificator.cpp" />
+    <ClCompile Include="qt\moc_openuridialog.cpp" />
+    <ClCompile Include="qt\moc_optionsdialog.cpp" />
+    <ClCompile Include="qt\moc_optionsmodel.cpp" />
+    <ClCompile Include="qt\moc_overviewpage.cpp" />
+    <ClCompile Include="qt\moc_paymentserver.cpp" />
+    <ClCompile Include="qt\moc_peertablemodel.cpp" />
+    <ClCompile Include="qt\moc_qvalidatedlineedit.cpp" />
+    <ClCompile Include="qt\moc_qvaluecombobox.cpp" />
+    <ClCompile Include="qt\moc_receivecoinsdialog.cpp" />
+    <ClCompile Include="qt\moc_receiverequestdialog.cpp" />
+    <ClCompile Include="qt\moc_recentrequeststablemodel.cpp" />
+    <ClCompile Include="qt\moc_rpcconsole.cpp" />
+    <ClCompile Include="qt\moc_sendcoinsdialog.cpp" />
+    <ClCompile Include="qt\moc_sendcoinsentry.cpp" />
+    <ClCompile Include="qt\moc_signverifymessagedialog.cpp" />
+    <ClCompile Include="qt\moc_splashscreen.cpp" />
+    <ClCompile Include="qt\moc_trafficgraphwidget.cpp" />
+    <ClCompile Include="qt\moc_transactiondesc.cpp" />
+    <ClCompile Include="qt\moc_transactiondescdialog.cpp" />
+    <ClCompile Include="qt\moc_transactionfilterproxy.cpp" />
+    <ClCompile Include="qt\moc_transactiontablemodel.cpp" />
+    <ClCompile Include="qt\moc_transactionview.cpp" />
+    <ClCompile Include="qt\moc_utilitydialog.cpp" />
+    <ClCompile Include="qt\moc_walletframe.cpp" />
+    <ClCompile Include="qt\moc_walletmodel.cpp" />
+    <ClCompile Include="qt\moc_walletview.cpp" />
+    <ClCompile Include="qt\modaloverlay.cpp" />
+    <ClCompile Include="qt\networkstyle.cpp" />
+    <ClCompile Include="qt\notificator.cpp" />
+    <ClCompile Include="qt\openuridialog.cpp" />
+    <ClCompile Include="qt\optionsdialog.cpp" />
+    <ClCompile Include="qt\optionsmodel.cpp" />
+    <ClCompile Include="qt\overviewpage.cpp" />
+    <ClCompile Include="qt\paymentrequest.pb.cc" />
+    <ClCompile Include="qt\paymentrequestplus.cpp" />
+    <ClCompile Include="qt\paymentserver.cpp" />
+    <ClCompile Include="qt\peertablemodel.cpp" />
+    <ClCompile Include="qt\platformstyle.cpp" />
+    <ClCompile Include="qt\qvalidatedlineedit.cpp" />
+    <ClCompile Include="qt\qvaluecombobox.cpp" />
+    <ClCompile Include="qt\receivecoinsdialog.cpp" />
+    <ClCompile Include="qt\receiverequestdialog.cpp" />
+    <ClCompile Include="qt\recentrequeststablemodel.cpp" />
+    <ClCompile Include="qt\res_bitcoin.cpp" />
+    <ClCompile Include="qt\res_bitcoin_locale.cpp" />
+    <ClCompile Include="qt\rpcconsole.cpp" />
+    <ClCompile Include="qt\sendcoinsdialog.cpp" />
+    <ClCompile Include="qt\sendcoinsentry.cpp" />
+    <ClCompile Include="qt\signverifymessagedialog.cpp" />
+    <ClCompile Include="qt\splashscreen.cpp" />
+    <ClCompile Include="qt\stdafx.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='D_St|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='R_St|Win32'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='D_St|x64'">Create</PrecompiledHeader>
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='R_St|x64'">Create</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="qt\trafficgraphwidget.cpp" />
+    <ClCompile Include="qt\transactiondesc.cpp" />
+    <ClCompile Include="qt\transactiondescdialog.cpp" />
+    <ClCompile Include="qt\transactionfilterproxy.cpp" />
+    <ClCompile Include="qt\transactionrecord.cpp" />
+    <ClCompile Include="qt\transactiontablemodel.cpp" />
+    <ClCompile Include="qt\transactionview.cpp" />
+    <ClCompile Include="qt\utilitydialog.cpp" />
+    <ClCompile Include="qt\walletframe.cpp" />
+    <ClCompile Include="qt\walletmodel.cpp" />
+    <ClCompile Include="qt\walletmodeltransaction.cpp" />
+    <ClCompile Include="qt\walletview.cpp" />
+    <ClCompile Include="qt\winshutdownmonitor.cpp" />
+    <ClCompile Include="win-libs.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="qt\addressbookpage.h" />
+    <ClInclude Include="qt\addresstablemodel.h" />
+    <ClInclude Include="qt\askpassphrasedialog.h" />
+    <ClInclude Include="qt\bitcoinaddressvalidator.h" />
+    <ClInclude Include="qt\bitcoinamountfield.h" />
+    <ClInclude Include="qt\bitcoingui.h" />
+    <ClInclude Include="qt\bitcoinunits.h" />
+    <ClInclude Include="qt\clientmodel.h" />
+    <ClInclude Include="qt\coincontroldialog.h" />
+    <ClInclude Include="qt\coincontroltreewidget.h" />
+    <ClInclude Include="qt\csvmodelwriter.h" />
+    <ClInclude Include="qt\editaddressdialog.h" />
+    <ClInclude Include="qt\forms\ui_addressbookpage.h" />
+    <ClInclude Include="qt\forms\ui_askpassphrasedialog.h" />
+    <ClInclude Include="qt\forms\ui_coincontroldialog.h" />
+    <ClInclude Include="qt\forms\ui_debugwindow.h" />
+    <ClInclude Include="qt\forms\ui_editaddressdialog.h" />
+    <ClInclude Include="qt\forms\ui_helpmessagedialog.h" />
+    <ClInclude Include="qt\forms\ui_intro.h" />
+    <ClInclude Include="qt\forms\ui_modaloverlay.h" />
+    <ClInclude Include="qt\forms\ui_openuridialog.h" />
+    <ClInclude Include="qt\forms\ui_optionsdialog.h" />
+    <ClInclude Include="qt\forms\ui_overviewpage.h" />
+    <ClInclude Include="qt\forms\ui_receivecoinsdialog.h" />
+    <ClInclude Include="qt\forms\ui_receiverequestdialog.h" />
+    <ClInclude Include="qt\forms\ui_sendcoinsdialog.h" />
+    <ClInclude Include="qt\forms\ui_sendcoinsentry.h" />
+    <ClInclude Include="qt\forms\ui_signverifymessagedialog.h" />
+    <ClInclude Include="qt\forms\ui_transactiondescdialog.h" />
+    <ClInclude Include="qt\guiutil.h" />
+    <ClInclude Include="qt\intro.h" />
+    <ClInclude Include="qt\networkstyle.h" />
+    <ClInclude Include="qt\notificator.h" />
+    <ClInclude Include="qt\openuridialog.h" />
+    <ClInclude Include="qt\optionsmodel.h" />
+    <ClInclude Include="qt\overviewpage.h" />
+    <ClInclude Include="qt\paymentrequestplus.h" />
+    <ClInclude Include="qt\paymentserver.h" />
+    <ClInclude Include="qt\peertablemodel.h" />
+    <ClInclude Include="qt\platformstyle.h" />
+    <ClInclude Include="qt\qvaluecombobox.h" />
+    <ClInclude Include="qt\receivecoinsdialog.h" />
+    <ClInclude Include="qt\receiverequestdialog.h" />
+    <ClInclude Include="qt\recentrequeststablemodel.h" />
+    <ClInclude Include="qt\rpcconsole.h" />
+    <ClInclude Include="qt\sendcoinsdialog.h" />
+    <ClInclude Include="qt\sendcoinsentry.h" />
+    <ClInclude Include="qt\signverifymessagedialog.h" />
+    <ClInclude Include="qt\splashscreen.h" />
+    <ClInclude Include="qt\trafficgraphwidget.h" />
+    <ClInclude Include="qt\transactiondesc.h" />
+    <ClInclude Include="qt\transactiondescdialog.h" />
+    <ClInclude Include="qt\transactionfilterproxy.h" />
+    <ClInclude Include="qt\transactionrecord.h" />
+    <ClInclude Include="qt\transactiontablemodel.h" />
+    <ClInclude Include="qt\transactionview.h" />
+    <ClInclude Include="qt\utilitydialog.h" />
+    <ClInclude Include="qt\walletframe.h" />
+    <ClInclude Include="qt\walletmodel.h" />
+    <ClInclude Include="qt\walletmodeltransaction.h" />
+    <ClInclude Include="qt\walletview.h" />
+    <ClInclude Include="qt\winshutdownmonitor.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="qt\res\bitcoin-qt-res.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="qt\res\icons\soferox.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="qt\locale\bitcoin_ach.ts" />
+    <None Include="qt\locale\bitcoin_af.ts" />
+    <None Include="qt\locale\bitcoin_af_ZA.ts" />
+    <None Include="qt\locale\bitcoin_ar.ts" />
+    <None Include="qt\locale\bitcoin_be_BY.ts" />
+    <None Include="qt\locale\bitcoin_bg.ts" />
+    <None Include="qt\locale\bitcoin_bg_BG.ts" />
+    <None Include="qt\locale\bitcoin_ca%40valencia.ts" />
+    <None Include="qt\locale\bitcoin_ca.ts" />
+    <None Include="qt\locale\bitcoin_ca_ES.ts" />
+    <None Include="qt\locale\bitcoin_cmn.ts" />
+    <None Include="qt\locale\bitcoin_cs.ts" />
+    <None Include="qt\locale\bitcoin_cs_CZ.ts" />
+    <None Include="qt\locale\bitcoin_cy.ts" />
+    <None Include="qt\locale\bitcoin_da.ts" />
+    <None Include="qt\locale\bitcoin_de.ts" />
+    <None Include="qt\locale\bitcoin_el.ts" />
+    <None Include="qt\locale\bitcoin_el_GR.ts" />
+    <None Include="qt\locale\bitcoin_en.ts" />
+    <None Include="qt\locale\bitcoin_en_GB.ts" />
+    <None Include="qt\locale\bitcoin_eo.ts" />
+    <None Include="qt\locale\bitcoin_es.ts" />
+    <None Include="qt\locale\bitcoin_es_AR.ts" />
+    <None Include="qt\locale\bitcoin_es_CL.ts" />
+    <None Include="qt\locale\bitcoin_es_CO.ts" />
+    <None Include="qt\locale\bitcoin_es_DO.ts" />
+    <None Include="qt\locale\bitcoin_es_ES.ts" />
+    <None Include="qt\locale\bitcoin_es_MX.ts" />
+    <None Include="qt\locale\bitcoin_es_UY.ts" />
+    <None Include="qt\locale\bitcoin_es_VE.ts" />
+    <None Include="qt\locale\bitcoin_et.ts" />
+    <None Include="qt\locale\bitcoin_eu_ES.ts" />
+    <None Include="qt\locale\bitcoin_fa.ts" />
+    <None Include="qt\locale\bitcoin_fa_IR.ts" />
+    <None Include="qt\locale\bitcoin_fi.ts" />
+    <None Include="qt\locale\bitcoin_fr.ts" />
+    <None Include="qt\locale\bitcoin_fr_CA.ts" />
+    <None Include="qt\locale\bitcoin_fr_FR.ts" />
+    <None Include="qt\locale\bitcoin_gl.ts" />
+    <None Include="qt\locale\bitcoin_gu_IN.ts" />
+    <None Include="qt\locale\bitcoin_he.ts" />
+    <None Include="qt\locale\bitcoin_hi_IN.ts" />
+    <None Include="qt\locale\bitcoin_hr.ts" />
+    <None Include="qt\locale\bitcoin_hu.ts" />
+    <None Include="qt\locale\bitcoin_id_ID.ts" />
+    <None Include="qt\locale\bitcoin_it.ts" />
+    <None Include="qt\locale\bitcoin_it_IT.ts" />
+    <None Include="qt\locale\bitcoin_ja.ts" />
+    <None Include="qt\locale\bitcoin_ka.ts" />
+    <None Include="qt\locale\bitcoin_kk_KZ.ts" />
+    <None Include="qt\locale\bitcoin_ko_KR.ts" />
+    <None Include="qt\locale\bitcoin_ku_IQ.ts" />
+    <None Include="qt\locale\bitcoin_ky.ts" />
+    <None Include="qt\locale\bitcoin_la.ts" />
+    <None Include="qt\locale\bitcoin_lt.ts" />
+    <None Include="qt\locale\bitcoin_lv_LV.ts" />
+    <None Include="qt\locale\bitcoin_mk_MK.ts" />
+    <None Include="qt\locale\bitcoin_mn.ts" />
+    <None Include="qt\locale\bitcoin_ms_MY.ts" />
+    <None Include="qt\locale\bitcoin_nb.ts" />
+    <None Include="qt\locale\bitcoin_ne.ts" />
+    <None Include="qt\locale\bitcoin_nl.ts" />
+    <None Include="qt\locale\bitcoin_pam.ts" />
+    <None Include="qt\locale\bitcoin_pl.ts" />
+    <None Include="qt\locale\bitcoin_pt_BR.ts" />
+    <None Include="qt\locale\bitcoin_pt_PT.ts" />
+    <None Include="qt\locale\bitcoin_ro.ts" />
+    <None Include="qt\locale\bitcoin_ro_RO.ts" />
+    <None Include="qt\locale\bitcoin_ru.ts" />
+    <None Include="qt\locale\bitcoin_ru_RU.ts" />
+    <None Include="qt\locale\bitcoin_sah.ts" />
+    <None Include="qt\locale\bitcoin_sk.ts" />
+    <None Include="qt\locale\bitcoin_sl_SI.ts" />
+    <None Include="qt\locale\bitcoin_sq.ts" />
+    <None Include="qt\locale\bitcoin_sr%40latin.ts" />
+    <None Include="qt\locale\bitcoin_sr.ts" />
+    <None Include="qt\locale\bitcoin_sv.ts" />
+    <None Include="qt\locale\bitcoin_ta.ts" />
+    <None Include="qt\locale\bitcoin_th_TH.ts" />
+    <None Include="qt\locale\bitcoin_tr.ts" />
+    <None Include="qt\locale\bitcoin_tr_TR.ts" />
+    <None Include="qt\locale\bitcoin_uk.ts" />
+    <None Include="qt\locale\bitcoin_ur_PK.ts" />
+    <None Include="qt\locale\bitcoin_uz%40Cyrl.ts" />
+    <None Include="qt\locale\bitcoin_vi.ts" />
+    <None Include="qt\locale\bitcoin_vi_VN.ts" />
+    <None Include="qt\locale\bitcoin_zh.ts" />
+    <None Include="qt\locale\bitcoin_zh_CN.ts" />
+    <None Include="qt\locale\bitcoin_zh_HK.ts" />
+    <None Include="qt\locale\bitcoin_zh_TW.ts" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

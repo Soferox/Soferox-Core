@@ -1,0 +1,22 @@
+[Unit]
+Description=Soferox's distributed currency daemon
+After=network.target
+
+[Service]
+User=soferox
+Group=soferox
+
+Type=forking
+PIDFile=/var/lib/soferoxd/soferoxd.pid
+ExecStart=/usr/bin/soferoxd -daemon -pid=/var/lib/soferoxd/soferoxd.pid \
+-conf=/etc/soferox/soferox.conf -datadir=/var/lib/soferoxd -disablewallet
+
+Restart=always
+PrivateTmp=true
+TimeoutStopSec=60s
+TimeoutStartSec=2s
+StartLimitInterval=120s
+StartLimitBurst=5
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,6 @@
+usr/local/bin/soferox-qt usr/bin
+share/pixmaps/soferox32.xpm usr/share/pixmaps
+share/pixmaps/soferox16.xpm usr/share/pixmaps
+share/pixmaps/soferox128.png usr/share/pixmaps
+debian/soferox-qt.desktop usr/share/applications
+debian/soferox-qt.protocol usr/share/kde4/services/

@@ -1,0 +1,67 @@
+#!/bin/bash
+#
+#  soferoxd The soferox core server.
+#
+#
+# chkconfig: 345 80 20
+# description: soferoxd
+# processname: soferoxd
+#
+
+# Source function library.
+. /etc/init.d/functions
+
+# you can override defaults in /etc/sysconfig/soferoxd, see below
+if [ -f /etc/sysconfig/soferoxd ]; then
+        . /etc/sysconfig/soferoxd
+fi
+
+RETVAL=0
+
+prog=soferoxd
+# you can override the lockfile via SOFEROXD_LOCKFILE in /etc/sysconfig/soferoxd
+lockfile=${SOFEROXD_LOCKFILE-/var/lock/subsys/soferoxd}
+
+# soferoxd defaults to /usr/bin/soferoxd, override with SOFEROXD_BIN
+soferoxd=${SOFEROXD_BIN-/usr/bin/soferoxd}
+
+# soferoxd opts default to -disablewallet, override with SOFEROXD_OPTS
+soferoxd_opts=${SOFEROXD_OPTS--disablewallet}
+
+start() {
+    echo -n $"Starting $prog: "
+    daemon $DAEMONOPTS $soferoxd $soferoxd_opts
+    RETVAL=$?
+    echo
+    [ $RETVAL -eq 0 ] && touch $lockfile
+    return $RETVAL
+}
+
+stop() {
+    echo -n $"Stopping $prog: "
+    killproc $prog
+    RETVAL=$?
+    echo
+    [ $RETVAL -eq 0 ] && rm -f $lockfile
+    return $RETVAL
+}
+
+case "$1" in
+    start)
+        start
+        ;;
+    stop)
+        stop
+        ;;
+    status)
+        status $prog
+        ;;
+    restart)
+        stop
+        start
+        ;;
+    *)
+        echo "Usage: service $prog {start|stop|status|restart}"
+        exit 1
+        ;;
+esac

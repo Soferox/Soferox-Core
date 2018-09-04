@@ -1,0 +1,834 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Source Files\qt">
+      <UniqueIdentifier>{0e034e57-2344-4da1-a24c-978d1bdb299c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\qt">
+      <UniqueIdentifier>{fb65136d-ba22-4a2f-9017-0d3282b64fe2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\qt\moc">
+      <UniqueIdentifier>{afcd613f-4a17-47da-bae7-f73e426e2306}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\qt\protobuf">
+      <UniqueIdentifier>{c512e75b-16bc-4a01-b016-8d4728a660ed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\qrencode">
+      <UniqueIdentifier>{b2cfd5dc-e24d-44ef-8989-54047ffe32b1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files\qt-locale">
+      <UniqueIdentifier>{26db04b6-8b64-44c1-afc3-d6c48a870e5b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\qt\forms">
+      <UniqueIdentifier>{d0e2035e-e1bd-46c5-87af-cdfccd36aa91}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="win-libs.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\bitcoin.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\networkstyle.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\optionsmodel.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\bitcoingui.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\guiutil.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\splashscreen.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\utilitydialog.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\moc_utilitydialog.cpp">
+      <Filter>Source Files\qt\moc</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\paymentrequest.pb.cc">
+      <Filter>Source Files\qt\protobuf</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\clientmodel.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\winshutdownmonitor.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\moc_bitcoingui.cpp">
+      <Filter>Source Files\qt\moc</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\bitcoinunits.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\moc_splashscreen.cpp">
+      <Filter>Source Files\qt\moc</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\moc_clientmodel.cpp">
+      <Filter>Source Files\qt\moc</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\bitcoinaddressvalidator.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\intro.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\moc_intro.cpp">
+      <Filter>Source Files\qt\moc</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\moc_bitcoinaddressvalidator.cpp">
+      <Filter>Source Files\qt\moc</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\peertablemodel.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\moc_guiutil.cpp">
+      <Filter>Source Files\qt\moc</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\optionsdialog.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\moc_optionsmodel.cpp">
+      <Filter>Source Files\qt\moc</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\notificator.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\qvaluecombobox.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\moc_bitcoinunits.cpp">
+      <Filter>Source Files\qt\moc</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\moc_optionsdialog.cpp">
+      <Filter>Source Files\qt\moc</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\moc_qvalidatedlineedit.cpp">
+      <Filter>Source Files\qt\moc</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\rpcconsole.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\qvalidatedlineedit.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\moc_peertablemodel.cpp">
+      <Filter>Source Files\qt\moc</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\moc_qvaluecombobox.cpp">
+      <Filter>Source Files\qt\moc</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\moc_rpcconsole.cpp">
+      <Filter>Source Files\qt\moc</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\trafficgraphwidget.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\moc_notificator.cpp">
+      <Filter>Source Files\qt\moc</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\moc_trafficgraphwidget.cpp">
+      <Filter>Source Files\qt\moc</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\res_bitcoin.cpp">
+      <Filter>Resource Files</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\res_bitcoin_locale.cpp">
+      <Filter>Resource Files</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\moc_walletframe.cpp">
+      <Filter>Source Files\qt\moc</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\paymentserver.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\openuridialog.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\walletmodel.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\walletframe.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\moc_paymentserver.cpp">
+      <Filter>Source Files\qt\moc</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\transactiontablemodel.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\addresstablemodel.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\recentrequeststablemodel.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\walletview.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\transactionrecord.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\moc_addresstablemodel.cpp">
+      <Filter>Source Files\qt\moc</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\moc_walletmodel.cpp">
+      <Filter>Source Files\qt\moc</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\signverifymessagedialog.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\sendcoinsdialog.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\receivecoinsdialog.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\overviewpage.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\moc_walletview.cpp">
+      <Filter>Source Files\qt\moc</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\askpassphrasedialog.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\addressbookpage.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\transactionview.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\csvmodelwriter.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\editaddressdialog.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\transactionfilterproxy.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\bitcoinamountfield.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\moc_addressbookpage.cpp">
+      <Filter>Source Files\qt\moc</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\moc_askpassphrasedialog.cpp">
+      <Filter>Source Files\qt\moc</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\moc_openuridialog.cpp">
+      <Filter>Source Files\qt\moc</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\moc_receivecoinsdialog.cpp">
+      <Filter>Source Files\qt\moc</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\walletmodeltransaction.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\transactiondesc.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\sendcoinsentry.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\paymentrequestplus.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\moc_csvmodelwriter.cpp">
+      <Filter>Source Files\qt\moc</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\moc_signverifymessagedialog.cpp">
+      <Filter>Source Files\qt\moc</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\moc_transactiontablemodel.cpp">
+      <Filter>Source Files\qt\moc</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\transactiondescdialog.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\coincontroldialog.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\receiverequestdialog.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\moc_overviewpage.cpp">
+      <Filter>Source Files\qt\moc</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\moc_editaddressdialog.cpp">
+      <Filter>Source Files\qt\moc</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\moc_sendcoinsentry.cpp">
+      <Filter>Source Files\qt\moc</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\moc_transactionfilterproxy.cpp">
+      <Filter>Source Files\qt\moc</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\moc_transactionview.cpp">
+      <Filter>Source Files\qt\moc</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\moc_recentrequeststablemodel.cpp">
+      <Filter>Source Files\qt\moc</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\moc_bitcoinamountfield.cpp">
+      <Filter>Source Files\qt\moc</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\moc_coincontroldialog.cpp">
+      <Filter>Source Files\qt\moc</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\moc_receiverequestdialog.cpp">
+      <Filter>Source Files\qt\moc</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\moc_sendcoinsdialog.cpp">
+      <Filter>Source Files\qt\moc</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\moc_transactiondescdialog.cpp">
+      <Filter>Source Files\qt\moc</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\coincontroltreewidget.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\moc_transactiondesc.cpp">
+      <Filter>Source Files\qt\moc</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\moc_coincontroltreewidget.cpp">
+      <Filter>Source Files\qt\moc</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\stdafx.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="..\foreign\qrencode\qrencode.c">
+      <Filter>Source Files\qrencode</Filter>
+    </ClCompile>
+    <ClCompile Include="..\foreign\qrencode\mask.c">
+      <Filter>Source Files\qrencode</Filter>
+    </ClCompile>
+    <ClCompile Include="..\foreign\qrencode\mmask.c">
+      <Filter>Source Files\qrencode</Filter>
+    </ClCompile>
+    <ClCompile Include="..\foreign\qrencode\mqrspec.c">
+      <Filter>Source Files\qrencode</Filter>
+    </ClCompile>
+    <ClCompile Include="..\foreign\qrencode\qrinput.c">
+      <Filter>Source Files\qrencode</Filter>
+    </ClCompile>
+    <ClCompile Include="..\foreign\qrencode\bitstream.c">
+      <Filter>Source Files\qrencode</Filter>
+    </ClCompile>
+    <ClCompile Include="..\foreign\qrencode\qrspec.c">
+      <Filter>Source Files\qrencode</Filter>
+    </ClCompile>
+    <ClCompile Include="..\foreign\qrencode\rscode.c">
+      <Filter>Source Files\qrencode</Filter>
+    </ClCompile>
+    <ClCompile Include="..\foreign\qrencode\split.c">
+      <Filter>Source Files\qrencode</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\platformstyle.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\moc_modaloverlay.cpp">
+      <Filter>Source Files\qt\moc</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\modaloverlay.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\bantablemodel.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\moc_bantablemodel.cpp">
+      <Filter>Source Files\qt\moc</Filter>
+    </ClCompile>
+    <ClCompile Include="qt\bitcoinstrings.cpp">
+      <Filter>Source Files\qt</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="qt\networkstyle.h">
+      <Filter>Header Files\qt</Filter>
+    </ClInclude>
+    <ClInclude Include="qt\optionsmodel.h">
+      <Filter>Header Files\qt</Filter>
+    </ClInclude>
+    <ClInclude Include="qt\bitcoingui.h">
+      <Filter>Header Files\qt</Filter>
+    </ClInclude>
+    <ClInclude Include="qt\guiutil.h">
+      <Filter>Header Files\qt</Filter>
+    </ClInclude>
+    <ClInclude Include="qt\splashscreen.h">
+      <Filter>Header Files\qt</Filter>
+    </ClInclude>
+    <ClInclude Include="qt\utilitydialog.h">
+      <Filter>Header Files\qt</Filter>
+    </ClInclude>
+    <ClInclude Include="qt\clientmodel.h">
+      <Filter>Header Files\qt</Filter>
+    </ClInclude>
+    <ClInclude Include="qt\winshutdownmonitor.h">
+      <Filter>Header Files\qt</Filter>
+    </ClInclude>
+    <ClInclude Include="qt\bitcoinunits.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="qt\bitcoinaddressvalidator.h">
+      <Filter>Header Files\qt</Filter>
+    </ClInclude>
+    <ClInclude Include="qt\intro.h">
+      <Filter>Header Files\qt</Filter>
+    </ClInclude>
+    <ClInclude Include="qt\peertablemodel.h">
+      <Filter>Header Files\qt</Filter>
+    </ClInclude>
+    <ClInclude Include="qt\notificator.h">
+      <Filter>Header Files\qt</Filter>
+    </ClInclude>
+    <ClInclude Include="qt\qvaluecombobox.h">
+      <Filter>Header Files\qt</Filter>
+    </ClInclude>
+    <ClInclude Include="qt\rpcconsole.h">
+      <Filter>Header Files\qt</Filter>
+    </ClInclude>
+    <ClInclude Include="qt\trafficgraphwidget.h">
+      <Filter>Header Files\qt</Filter>
+    </ClInclude>
+    <ClInclude Include="qt\paymentserver.h">
+      <Filter>Header Files\qt</Filter>
+    </ClInclude>
+    <ClInclude Include="qt\openuridialog.h">
+      <Filter>Header Files\qt</Filter>
+    </ClInclude>
+    <ClInclude Include="qt\walletmodel.h">
+      <Filter>Header Files\qt</Filter>
+    </ClInclude>
+    <ClInclude Include="qt\walletframe.h">
+      <Filter>Header Files\qt</Filter>
+    </ClInclude>
+    <ClInclude Include="qt\transactiontablemodel.h">
+      <Filter>Header Files\qt</Filter>
+    </ClInclude>
+    <ClInclude Include="qt\addresstablemodel.h">
+      <Filter>Header Files\qt</Filter>
+    </ClInclude>
+    <ClInclude Include="qt\recentrequeststablemodel.h">
+      <Filter>Header Files\qt</Filter>
+    </ClInclude>
+    <ClInclude Include="qt\walletview.h">
+      <Filter>Header Files\qt</Filter>
+    </ClInclude>
+    <ClInclude Include="qt\transactionrecord.h">
+      <Filter>Header Files\qt</Filter>
+    </ClInclude>
+    <ClInclude Include="qt\signverifymessagedialog.h">
+      <Filter>Header Files\qt</Filter>
+    </ClInclude>
+    <ClInclude Include="qt\sendcoinsdialog.h">
+      <Filter>Header Files\qt</Filter>
+    </ClInclude>
+    <ClInclude Include="qt\receivecoinsdialog.h">
+      <Filter>Header Files\qt</Filter>
+    </ClInclude>
+    <ClInclude Include="qt\overviewpage.h">
+      <Filter>Header Files\qt</Filter>
+    </ClInclude>
+    <ClInclude Include="qt\askpassphrasedialog.h">
+      <Filter>Header Files\qt</Filter>
+    </ClInclude>
+    <ClInclude Include="qt\addressbookpage.h">
+      <Filter>Header Files\qt</Filter>
+    </ClInclude>
+    <ClInclude Include="qt\transactionview.h">
+      <Filter>Header Files\qt</Filter>
+    </ClInclude>
+    <ClInclude Include="qt\csvmodelwriter.h">
+      <Filter>Header Files\qt</Filter>
+    </ClInclude>
+    <ClInclude Include="qt\editaddressdialog.h">
+      <Filter>Header Files\qt</Filter>
+    </ClInclude>
+    <ClInclude Include="qt\transactionfilterproxy.h">
+      <Filter>Header Files\qt</Filter>
+    </ClInclude>
+    <ClInclude Include="qt\bitcoinamountfield.h">
+      <Filter>Header Files\qt</Filter>
+    </ClInclude>
+    <ClInclude Include="qt\walletmodeltransaction.h">
+      <Filter>Header Files\qt</Filter>
+    </ClInclude>
+    <ClInclude Include="qt\transactiondesc.h">
+      <Filter>Header Files\qt</Filter>
+    </ClInclude>
+    <ClInclude Include="qt\sendcoinsentry.h">
+      <Filter>Header Files\qt</Filter>
+    </ClInclude>
+    <ClInclude Include="qt\paymentrequestplus.h">
+      <Filter>Header Files\qt</Filter>
+    </ClInclude>
+    <ClInclude Include="qt\transactiondescdialog.h">
+      <Filter>Header Files\qt</Filter>
+    </ClInclude>
+    <ClInclude Include="qt\coincontroldialog.h">
+      <Filter>Header Files\qt</Filter>
+    </ClInclude>
+    <ClInclude Include="qt\receiverequestdialog.h">
+      <Filter>Header Files\qt</Filter>
+    </ClInclude>
+    <ClInclude Include="qt\coincontroltreewidget.h">
+      <Filter>Header Files\qt</Filter>
+    </ClInclude>
+    <ClInclude Include="qt\platformstyle.h">
+      <Filter>Header Files\qt</Filter>
+    </ClInclude>
+    <ClInclude Include="qt\forms\ui_addressbookpage.h">
+      <Filter>Source Files\qt\forms</Filter>
+    </ClInclude>
+    <ClInclude Include="qt\forms\ui_askpassphrasedialog.h">
+      <Filter>Source Files\qt\forms</Filter>
+    </ClInclude>
+    <ClInclude Include="qt\forms\ui_coincontroldialog.h">
+      <Filter>Source Files\qt\forms</Filter>
+    </ClInclude>
+    <ClInclude Include="qt\forms\ui_debugwindow.h">
+      <Filter>Source Files\qt\forms</Filter>
+    </ClInclude>
+    <ClInclude Include="qt\forms\ui_editaddressdialog.h">
+      <Filter>Source Files\qt\forms</Filter>
+    </ClInclude>
+    <ClInclude Include="qt\forms\ui_helpmessagedialog.h">
+      <Filter>Source Files\qt\forms</Filter>
+    </ClInclude>
+    <ClInclude Include="qt\forms\ui_intro.h">
+      <Filter>Source Files\qt\forms</Filter>
+    </ClInclude>
+    <ClInclude Include="qt\forms\ui_modaloverlay.h">
+      <Filter>Source Files\qt\forms</Filter>
+    </ClInclude>
+    <ClInclude Include="qt\forms\ui_openuridialog.h">
+      <Filter>Source Files\qt\forms</Filter>
+    </ClInclude>
+    <ClInclude Include="qt\forms\ui_optionsdialog.h">
+      <Filter>Source Files\qt\forms</Filter>
+    </ClInclude>
+    <ClInclude Include="qt\forms\ui_overviewpage.h">
+      <Filter>Source Files\qt\forms</Filter>
+    </ClInclude>
+    <ClInclude Include="qt\forms\ui_receivecoinsdialog.h">
+      <Filter>Source Files\qt\forms</Filter>
+    </ClInclude>
+    <ClInclude Include="qt\forms\ui_receiverequestdialog.h">
+      <Filter>Source Files\qt\forms</Filter>
+    </ClInclude>
+    <ClInclude Include="qt\forms\ui_sendcoinsdialog.h">
+      <Filter>Source Files\qt\forms</Filter>
+    </ClInclude>
+    <ClInclude Include="qt\forms\ui_sendcoinsentry.h">
+      <Filter>Source Files\qt\forms</Filter>
+    </ClInclude>
+    <ClInclude Include="qt\forms\ui_signverifymessagedialog.h">
+      <Filter>Source Files\qt\forms</Filter>
+    </ClInclude>
+    <ClInclude Include="qt\forms\ui_transactiondescdialog.h">
+      <Filter>Source Files\qt\forms</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="qt\res\bitcoin-qt-res.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="qt\res\icons\soferox.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="qt\locale\bitcoin_ach.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_af.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_af_ZA.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_ar.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_be_BY.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_bg.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_bg_BG.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_ca.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_ca%40valencia.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_ca_ES.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_cmn.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_cs.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_cs_CZ.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_cy.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_da.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_de.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_el.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_el_GR.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_en.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_en_GB.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_eo.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_es.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_es_AR.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_es_CL.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_es_CO.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_es_DO.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_es_ES.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_es_MX.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_es_UY.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_es_VE.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_et.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_eu_ES.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_fa.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_fa_IR.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_fi.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_fr.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_fr_CA.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_fr_FR.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_gl.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_gu_IN.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_he.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_hi_IN.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_hr.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_hu.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_id_ID.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_it.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_it_IT.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_ja.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_ka.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_kk_KZ.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_ko_KR.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_ku_IQ.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_ky.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_la.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_lt.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_lv_LV.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_mk_MK.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_mn.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_ms_MY.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_nb.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_ne.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_nl.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_pam.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_pl.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_pt_BR.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_pt_PT.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_ro.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_ro_RO.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_ru.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_ru_RU.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_sah.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_sk.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_sl_SI.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_sq.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_sr.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_sr%40latin.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_sv.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_ta.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_th_TH.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_tr.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_tr_TR.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_uk.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_ur_PK.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_uz%40Cyrl.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_vi.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_vi_VN.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_zh.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_zh_CN.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_zh_HK.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+    <None Include="qt\locale\bitcoin_zh_TW.ts">
+      <Filter>Resource Files\qt-locale</Filter>
+    </None>
+  </ItemGroup>
+</Project>
