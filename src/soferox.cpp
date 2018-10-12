@@ -310,7 +310,7 @@ static CBlock CreateGenesisBlock(const char* pszTimestamp, const CScript& genesi
 *   vMerkleTree: 4a5e1e
 */
 static CBlock CreateGenesisBlock(uint32_t nTime, uint32_t nNonce, uint32_t nBits, int32_t nVersion, const CAmount& genesisReward) {
-	const char* pszTimestamp = "We always make good coin and future";
+	const char* pszTimestamp = "We always make good coin and future with perfect quality";
 	const CScript genesisOutputScript = CScript() << ParseHex("04678afdb0fe5548271967f1a67130b7105cd6a828e03909a67962e0ea1f61deb649f6bc3f4cef38c4f35504e51ec112de5c384df7ba0b8d578a4c702b6bf11d5f") << OP_CHECKSIG;
 	return CreateGenesisBlock(pszTimestamp, genesisOutputScript, nTime, nNonce, nBits, nVersion, genesisReward);
 }
@@ -342,7 +342,7 @@ public:
 		consensus.BIP66Height = 800000;
 		consensus.BIP65Height = INT_MAX;	//!!!?
 
-        consensus.powLimit = uint256S("00ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
+        consensus.powLimit = uint256S("00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
         consensus.nPowTargetTimespan = 14 * 24 * 60 * 60; // two weeks
         consensus.nPowTargetSpacing = 60;
         consensus.fPowAllowMinDifficultyBlocks = false;
@@ -354,17 +354,17 @@ public:
 
 		// Deployment of BIP68, BIP112, and BIP113.
 		consensus.vDeployments[Consensus::DEPLOYMENT_CSV].bit = 0;
-		consensus.vDeployments[Consensus::DEPLOYMENT_CSV].nStartTime = 1535500800; // Aug 29, 2018
+		consensus.vDeployments[Consensus::DEPLOYMENT_CSV].nStartTime = 1537228800; // Sep 18, 2018
 		consensus.vDeployments[Consensus::DEPLOYMENT_CSV].nTimeout = 1546214400; // Dec 31, 2018
 
 		// Deployment of SegWit (BIP141 and BIP143)
 		consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].bit = 1;
-		consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].nStartTime = 1535500800; // Aug 29, 2018
+		consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].nStartTime = 1537228800; // Sep 18, 2018
 		consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].nTimeout = 1546214400; // Dec 31, 2018
 
 		// Deployment of BIP65
 		consensus.vDeployments[Consensus::DEPLOYMENT_BIP65].bit = 5;
-		consensus.vDeployments[Consensus::DEPLOYMENT_BIP65].nStartTime = 1535500800; // Aug 29, 2018
+		consensus.vDeployments[Consensus::DEPLOYMENT_BIP65].nStartTime = 1537228800; // Sep 18, 2018
 		consensus.vDeployments[Consensus::DEPLOYMENT_BIP65].nTimeout = 1546214400; // Dec 31, 2018
 
         /**
@@ -375,7 +375,7 @@ public:
         consensus.nMinimumChainWork = uint256S("0x00");
 
         // By default assume that the signatures in ancestors of this block are valid.
-        consensus.defaultAssumeValid = uint256S("0x0000000000002cb0ac72cf044034b93d43244501e496e55576aa5c5111bdc362"); //2035383
+        consensus.defaultAssumeValid = uint256S("0x000001731d9008f70a929cb01e2e7d6403e3b17f25360c43421bf34ad5316109"); //0 block
 
 		/**
          * The message start string is designed to be unlikely to occur in normal data.
@@ -406,7 +406,7 @@ public:
 		// }
 
 
-		genesis = CreateGenesisBlock(1532449604, 1394613, 0x1e0fffff, 112, 0);
+		genesis = CreateGenesisBlock(1537197711, 475135, 0x1e0fffff, 112, 0);
 
         /**
          * Build the genesis block. Note that the output of its generation
@@ -431,8 +431,8 @@ public:
         consensus.hashGenesisBlock = genesis.GetHash();
 		// printf("main_genesis.GetHash = %s\n", genesis.GetHash().ToString().c_str());
         // printf("main_genesis.merklroot = %s\n", genesis.hashMerkleRoot.ToString().c_str());
-		assert(consensus.hashGenesisBlock == uint256S("0x00000cb4df2fa9b4d6bc09d9502ed67f23397fcd4064512695c8a752f85d3f5f"));
-		assert(genesis.hashMerkleRoot == uint256S("0x414d960e0ee8546bd482abc7d409c6d6f984ff7569b64750468386b70a0da1e5"));
+		assert(consensus.hashGenesisBlock == uint256S("0x000001731d9008f70a929cb01e2e7d6403e3b17f25360c43421bf34ad5316109"));
+		assert(genesis.hashMerkleRoot == uint256S("0x7561b273ff730b41f39f620336b70456874cc51aa1622e745e23d1f1f263db8d"));
 
         // vSeeds.push_back("soferox.org");
 		// vSeeds.push_back("electrum1.soferox.org");
@@ -461,7 +461,7 @@ public:
 		checkpointData = (CCheckpointData) {
 #endif
 			{
-				{0		, uint256S("0x000001b75fb6cfc7ee94f1552595c1e95ba4b149cbbb1d94bd05f23f2d432dce")},
+				{0		, uint256S("0x000001731d9008f70a929cb01e2e7d6403e3b17f25360c43421bf34ad5316109")},
 				// {28888, uint256S("0x00000000000228ce19f55cf0c45e04c7aa5a6a873ed23902b3654c3c49884502")},
 				// {58888, uint256S("0x0000000000dd85f4d5471febeb174a3f3f1598ab0af6616e9f266b56272274ef")},
 				// {111111, uint256S("0x00000000013de206275ee83f93bee57622335e422acbf126a37020484c6e113c")},
@@ -471,7 +471,7 @@ public:
 		};
 
 		chainTxData = ChainTxData{
-			1436539093, // * UNIX timestamp of last checkpoint block
+			1537197711, // * UNIX timestamp of last checkpoint block
 			0,   // * total number of transactions between genesis and last checkpoint
 						//   (the tx=... number in the SetBestChain debug.log lines)
 			100.0     // * estimated number of transactions per day after checkpoint
@@ -549,12 +549,12 @@ public:
 	
 		// }
 
-		genesis = CreateGenesisBlock(1530728750, 10742868, 0x1e00ffff, 3, 0);
+		genesis = CreateGenesisBlock(1537197790, 2573276, 0x1e00ffff, 3, 0);
         consensus.hashGenesisBlock = genesis.GetHash();
 		// printf("testnet_genesis.GetHash = %s\n", genesis.GetHash().ToString().c_str());
         // printf("testnet_genesis.merklroot = %s\n", genesis.hashMerkleRoot.ToString().c_str());
 		// printf("testnet_nNounce = %d\n", genesis.nNonce);
-        assert(consensus.hashGenesisBlock == uint256S("0x000000cf9bf4a0d7bc29ebdd9051fb68d3caa3e950b8be1dfbf35fea32a99fb7"));
+        assert(consensus.hashGenesisBlock == uint256S("0x000000ae86d44fa10749fab5c0de4dafc6c96c008d6cf20c11c7190e221cf057"));
 
         vFixedSeeds.clear();
         vSeeds.clear();
@@ -591,7 +591,7 @@ public:
 		};
 
 		chainTxData = ChainTxData{
-			1440000002,
+			1537197790,
 			0,
 			10
 		};
