@@ -1,6 +1,6 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2014 The Bitcoin Core developers
-// Copyright (c) 2014-2015 The Soferox developers
+// Copyright (c) 2014-2018 The Soferox developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -53,7 +53,7 @@ using namespace std;
 
 static const int64_t nGenesisBlockRewardCoin = 1 * COIN;
 int64_t minimumSubsidy = 5.0 * COIN;
-static const int64_t nPremine = 20000000 * COIN;
+static const int64_t nPremine = 40000000 * COIN;
 
 int64_t static GetBlockSubsidy(int nHeight){
 
