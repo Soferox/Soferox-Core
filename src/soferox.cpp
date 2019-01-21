@@ -1,6 +1,6 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2014 The Bitcoin Core developers
-// Copyright (c) 2014-2015 The Soferox developers
+// Copyright (c) 2014-2018 The Soferox developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -53,7 +53,7 @@ using namespace std;
 
 static const int64_t nGenesisBlockRewardCoin = 1 * COIN;
 int64_t minimumSubsidy = 5.0 * COIN;
-static const int64_t nPremine = 20000000 * COIN;
+static const int64_t nPremine = 40000000 * COIN;
 
 int64_t static GetBlockSubsidy(int nHeight){
 
@@ -336,36 +336,31 @@ class CMainParams : public CChainParams {
 public:
     CMainParams() {
         strNetworkID = "main";
-		consensus.BIP16Height = 1439423;
-		consensus.BIP34Height = 800000;
-		consensus.BIP34Hash = uint256S("0x0000000007f3f37410d5f7e71a07bf09bb802d5af6726fc891f0248ad857708c");
-		consensus.BIP66Height = 800000;
-		consensus.BIP65Height = INT_MAX;	//!!!?
+	consensus.BIP16Height = 0;
+	consensus.BIP34Height = 17;
+	consensus.BIP34Hash = uint256();
+	consensus.BIP66Height = 0;
+	consensus.BIP65Height = 0;
 
         consensus.powLimit = uint256S("00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
         consensus.nPowTargetTimespan = 14 * 24 * 60 * 60; // two weeks
         consensus.nPowTargetSpacing = 60;
         consensus.fPowAllowMinDifficultyBlocks = false;
         consensus.nRuleChangeActivationThreshold = 1916; // 95% of 2016
-		consensus.nMinerConfirmationWindow = 2016;
-		consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].bit = 28;
-		consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].nStartTime = 1199145601; // January 1, 2008
-		consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].nTimeout = 1230767999; // December 31, 2008
+	consensus.nMinerConfirmationWindow = 2016;
+	consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].bit = 28;
+	consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].nStartTime = 1199145601; // January 1, 2008
+	consensus.vDeployments[Consensus::DEPLOYMENT_TESTDUMMY].nTimeout = 1230767999; // December 31, 2008
 
-		// Deployment of BIP68, BIP112, and BIP113.
-		consensus.vDeployments[Consensus::DEPLOYMENT_CSV].bit = 0;
-		consensus.vDeployments[Consensus::DEPLOYMENT_CSV].nStartTime = 1537228800; // Sep 18, 2018
-		consensus.vDeployments[Consensus::DEPLOYMENT_CSV].nTimeout = 1546214400; // Dec 31, 2018
+	// Deployment of BIP68, BIP112, and BIP113.
+	consensus.vDeployments[Consensus::DEPLOYMENT_CSV].bit = 0;
+	consensus.vDeployments[Consensus::DEPLOYMENT_CSV].nStartTime = Consensus::BIP9Deployment::ALWAYS_ACTIVE;
+	consensus.vDeployments[Consensus::DEPLOYMENT_CSV].nTimeout = Consensus::BIP9Deployment::NO_TIMEOUT;
 
-		// Deployment of SegWit (BIP141 and BIP143)
-		consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].bit = 1;
-		consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].nStartTime = 1537228800; // Sep 18, 2018
-		consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].nTimeout = 1546214400; // Dec 31, 2018
-
-		// Deployment of BIP65
-		consensus.vDeployments[Consensus::DEPLOYMENT_BIP65].bit = 5;
-		consensus.vDeployments[Consensus::DEPLOYMENT_BIP65].nStartTime = 1537228800; // Sep 18, 2018
-		consensus.vDeployments[Consensus::DEPLOYMENT_BIP65].nTimeout = 1546214400; // Dec 31, 2018
+	// Deployment of SegWit (BIP141 and BIP143)
+	consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].bit = 1;
+	consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].nStartTime = Consensus::BIP9Deployment::ALWAYS_ACTIVE;
+	consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].nTimeout = Consensus::BIP9Deployment::NO_TIMEOUT;
 
         /**
         * The best chain should have at least this much work.
@@ -387,7 +382,7 @@ public:
         pchMessageStart[2] = 0xb4;
         pchMessageStart[3] = 0xd4;
 
-		nDefaultPort = 5332;
+	nDefaultPort = 5332;
         nPruneAfterHeight = 10000000;
 
 		// for (int nonce=1; nonce < 0x7FFFFFFF; ++nonce) {

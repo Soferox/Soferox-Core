@@ -8,9 +8,10 @@ Updated to Bitcoin reference wallet 0.13.3 on January 2017
 
 Updated to Bitcoin reference wallet 0.16.0 on June 2018
 
+Updated to own reference of 3.0.0 on December 2018
 Soferox Core Wallet
 
-http://www.soferox.org
+https://www.soferox.com
 
 The algorithm was written as a candidate for sha3
 
@@ -30,7 +31,7 @@ out collectively by the network. Soferox Core is the name of open source
 software which enables the use of this currency.
 
 For more information, as well as an immediately useable, binary version of
-the Soferox Core software, see http://www.soferox.org/download.
+the Soferox Core software, see http://www.soferox.com/download.
 
 License
 -------
