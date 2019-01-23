@@ -9,6 +9,8 @@ Updated to Bitcoin reference wallet 0.13.3 on January 2017
 Updated to Bitcoin reference wallet 0.16.0 on June 2018
 
 Updated to own reference of 3.0.0 on December 2018
+
+Updated to own reference of 3.0.1 on January 2019
 Soferox Core Wallet
 
 https://www.soferox.com
