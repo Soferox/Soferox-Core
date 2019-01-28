@@ -78,6 +78,14 @@ int64_t static GetBlockSubsidy(int nHeight){
 		*/
     }
 
+		/*
+		Calculate reward drop at 80 million
+		*/
+	if(nHeight > 101937)
+    {
+	return minimumSubsidy;
+    }
+
 	int64_t nSubsidy = 512 * COIN;
 
     // Subsidy is reduced by 6% every 10080 blocks, which will occur approximately every 1 week
