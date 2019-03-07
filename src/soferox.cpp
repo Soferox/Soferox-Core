@@ -68,13 +68,13 @@ int64_t static GetBlockSubsidy(int nHeight){
         return nPremine;
 		/*
 		optimized standalone cpu miner 	60*512=30720
-		standalone gpu miner 			120*512=61440
-		first pool			 			70*512 =35840
-		block-explorer		 			60*512 =30720
-		mac wallet binary    			30*512 =15360
-		linux wallet binary  			30*512 =15360
-		web-site						100*512	=51200
-		total									=240640
+		standalone gpu miner 		120*512=61440
+		first pool			70*512 =35840
+		block-explorer			60*512 =30720
+		mac wallet binary    		30*512 =15360
+		linux wallet binary  		30*512 =15360
+		web-site			100*512	=51200
+		total				=240640
 		*/
     }
 
@@ -101,7 +101,7 @@ int64_t static GetBlockSubsidy(int nHeight){
 int64_t static GetBlockSubsidy120000(int nHeight)
 {
 	// Subsidy is reduced by 10% every day (1440 blocks)
-	int64_t nSubsidy = 250 * COIN;
+	int64_t nSubsidy = 5 * COIN; // Fixed for minSubsidy
 	int exponent = ((nHeight - 120000) / 1440);
 	for(int i=0; i<exponent; i++)
 		nSubsidy = (nSubsidy * 45) / 50;
@@ -114,7 +114,7 @@ int64_t static GetBlockSubsidy150000(int nHeight)
 	static int heightOfMinSubsidy = INT_MAX;
 	if (nHeight < heightOfMinSubsidy) {
 		// Subsidy is reduced by 1% every week (10080 blocks)
-		int64_t nSubsidy = 25 * COIN;
+		int64_t nSubsidy = 5 * COIN; // Fixed for minSubsidy
 		int exponent = ((nHeight - 150000) / 10080);
 		for (int i = 0; i < exponent; i++)
 			nSubsidy = (nSubsidy * 99) / 100;
