@@ -1,13 +1,11 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2014 The Bitcoin Core developers
-// Copyright (c) 2014-2018 The Soferox developers
+// Copyright (c) 2014-2019 The Soferox developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include "soferox.h"
-
 #include <boost/assign/list_of.hpp>
-
 #include "arith_uint256.h"
 #include "chain.h"
 #include "chainparams.h"
@@ -15,9 +13,7 @@
 #include "consensus/params.h"
 #include "utilstrencodings.h"
 #include "crypto/sha256.h"
-
 #include "bignum.h"
-
 #include "chainparamsseeds.h"
 
 #ifdef _MSC_VER
@@ -53,10 +49,10 @@ using namespace std;
 
 static const int64_t nGenesisBlockRewardCoin = 1 * COIN;
 int64_t minimumSubsidy = 5.0 * COIN;
+int64_t minimumSubsidyIncrease = 6.0 * COIN;
 static const int64_t nPremine = 40000000 * COIN;
-
-int64_t static GetBlockSubsidy(int nHeight){
-
+static const int64_t nDualChainReserve = 20000000 * COIN;
+int64_t static GetBlockSubsidy(int nHeight) {
 
 	if (nHeight == 0)
     {
@@ -66,78 +62,55 @@ int64_t static GetBlockSubsidy(int nHeight){
 	if (nHeight == 1)
     {
         return nPremine;
-		/*
-		optimized standalone cpu miner 	60*512=30720
-		standalone gpu miner 		120*512=61440
-		first pool			70*512 =35840
-		block-explorer			60*512 =30720
-		mac wallet binary    		30*512 =15360
-		linux wallet binary  		30*512 =15360
-		web-site			100*512	=51200
-		total				=240640
-		*/
     }
 
-		/*
-		Calculate reward drop at 80 million
-		*/
 	if(nHeight > 101937)
     {
 	return minimumSubsidy;
     }
 
-	int64_t nSubsidy = 512 * COIN;
+    int64_t nSubsidy = 512 * COIN;
 
-    // Subsidy is reduced by 6% every 10080 blocks, which will occur approximately every 1 week
     int exponent=(nHeight / 10080);
-    for(int i=0;i<exponent;i++){
-        nSubsidy=nSubsidy*47;
-		nSubsidy=nSubsidy/50;
+    for(int i=0;i<exponent;i++) {
+     nSubsidy=nSubsidy*47;
+     nSubsidy=nSubsidy/50;
     }
+
     if(nSubsidy<minimumSubsidy){nSubsidy=minimumSubsidy;}
     return nSubsidy;
 }
 
+int64_t static GetBlockSubsidy128000(int nHeight)
+{
+   if(nHeight == 130010)
+   {
+	return nDualChainReserve;
+   }
+
+   return minimumSubsidyIncrease;
+}
+
 int64_t static GetBlockSubsidy120000(int nHeight)
 {
-	// Subsidy is reduced by 10% every day (1440 blocks)
-//	int64_t nSubsidy = 5 * COIN; // Fixed for minSubsidy
-//	int exponent = ((nHeight - 120000) / 1440);
-//	for(int i=0; i<exponent; i++)
-//		nSubsidy = (nSubsidy * 45) / 50;
-
-//	return nSubsidy;
-	return minimumSubsidy;
+        return minimumSubsidyIncrease;
 }
 
 int64_t static GetBlockSubsidy150000(int nHeight)
 {
-//	static int heightOfMinSubsidy = INT_MAX;
-//	if (nHeight < heightOfMinSubsidy) {
-//		// Subsidy is reduced by 1% every week (10080 blocks)
-//		int64_t nSubsidy = 5 * COIN; // Fixed for minSubsidy
-//		int exponent = ((nHeight - 150000) / 10080);
-//		for (int i = 0; i < exponent; i++)
-//			nSubsidy = (nSubsidy * 99) / 100;
-
-//		if (nSubsidy >= minimumSubsidy)
-//			return nSubsidy;
-//		heightOfMinSubsidy = (min)(heightOfMinSubsidy, nHeight);
-//	}
-	return minimumSubsidy;
+        return minimumSubsidyIncrease;
 }
+
 
 CAmount GetBlockSubsidy(int nHeight, const Consensus::Params& consensusParams)
 {
-	return nHeight >= 150000 ? GetBlockSubsidy150000(nHeight)
-		: nHeight >= 120411 ? GetBlockSubsidy120000(nHeight)
-		: GetBlockSubsidy(nHeight);
+        return nHeight >= 150000 ? GetBlockSubsidy150000(nHeight)
+		: nHeight >= 130000 ? GetBlockSubsidy128000(nHeight)
+ 		: nHeight >= 120001 ? GetBlockSubsidy120000(nHeight)
+                : GetBlockSubsidy(nHeight);
 }
 
-//
-// minimum amount of work that could possibly be required nTime after
-// minimum work required was nBase
-//
+
 static const int64_t nTargetSpacing = 1 * 60; // soferox every 60 seconds
 
 //!!!BUG this function is non-deterministic  because FP-arithetics
@@ -350,7 +323,8 @@ public:
 	consensus.BIP34Hash = uint256();
 	consensus.BIP66Height = 0;
 	consensus.BIP65Height = 0;
-
+	consensus.SFXHeight = 128040;
+	consensus.SFXExchangeReserve = 20000000;
         consensus.powLimit = uint256S("00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
         consensus.nPowTargetTimespan = 14 * 24 * 60 * 60; // two weeks
         consensus.nPowTargetSpacing = 60;
@@ -370,6 +344,11 @@ public:
 	consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].bit = 1;
 	consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].nStartTime = Consensus::BIP9Deployment::ALWAYS_ACTIVE;
 	consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].nTimeout = Consensus::BIP9Deployment::NO_TIMEOUT;
+
+      // Deployment of BIP65
+        consensus.vDeployments[Consensus::DEPLOYMENT_BIP65].bit = 5;
+        consensus.vDeployments[Consensus::DEPLOYMENT_BIP65].nStartTime = Consensus::BIP9Deployment::ALWAYS_ACTIVE;
+        consensus.vDeployments[Consensus::DEPLOYMENT_BIP65].nTimeout = Consensus::BIP9Deployment::NO_TIMEOUT;
 
         /**
         * The best chain should have at least this much work.
