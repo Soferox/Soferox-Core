@@ -81,9 +81,9 @@ int64_t static GetBlockSubsidy(int nHeight) {
     return nSubsidy;
 }
 
-int64_t static GetBlockSubsidy128000(int nHeight)
+int64_t static GetBlockSubsidy129000(int nHeight)
 {
-   if(nHeight == 128810)
+   if(nHeight == 129810)
    {
 	return nDualChainReserve;
    }
@@ -105,7 +105,7 @@ int64_t static GetBlockSubsidy150000(int nHeight)
 CAmount GetBlockSubsidy(int nHeight, const Consensus::Params& consensusParams)
 {
         return nHeight >= 150000 ? GetBlockSubsidy150000(nHeight)
-		: nHeight >= 128800 ? GetBlockSubsidy128000(nHeight)
+		: nHeight >= 129800 ? GetBlockSubsidy129000(nHeight)
  		: nHeight >= 120001 ? GetBlockSubsidy120000(nHeight)
                 : GetBlockSubsidy(nHeight);
 }
@@ -323,7 +323,7 @@ public:
 	consensus.BIP34Hash = uint256();
 	consensus.BIP66Height = 0;
 	consensus.BIP65Height = 0;
-	consensus.SFXHeight = 128040;
+	consensus.SFXHeight = 129800;
 	consensus.SFXExchangeReserve = 20000000;
         consensus.powLimit = uint256S("00000fffffffffffffffffffffffffffffffffffffffffffffffffffffffffff");
         consensus.nPowTargetTimespan = 14 * 24 * 60 * 60; // two weeks
