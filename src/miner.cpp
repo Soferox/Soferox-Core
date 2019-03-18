@@ -172,8 +172,8 @@ std::unique_ptr<CBlockTemplate> BlockAssembler::CreateNewBlock(const CScript& sc
     /**************************
      TESTING FORK BLOCK FORMAT
     **************************/
-    const Consensus::Params& params = chainparams.GetConsensus();
-    arith_uint256 nonce;
+//    const Consensus::Params& params = chainparams.GetConsensus();
+//    arith_uint256 nonce;
 //    if (nHeight >= params.SFXHeight) {
         // Randomise nonce for new block foramt.
 //        nonce = UintToArith256(GetRandHash());
