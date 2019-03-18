@@ -49,7 +49,7 @@ using namespace std;
 
 static const int64_t nGenesisBlockRewardCoin = 1 * COIN;
 int64_t minimumSubsidy = 5.0 * COIN;
-int64_t minimumSubsidyIncrease = 6.0 * COIN;
+int64_t minimumSubsidyIncrease = 4.0 * COIN;
 static const int64_t nPremine = 40000000 * COIN;
 static const int64_t nDualChainReserve = 20000000 * COIN;
 int64_t static GetBlockSubsidy(int nHeight) {
