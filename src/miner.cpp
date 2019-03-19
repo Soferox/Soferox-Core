@@ -1,6 +1,5 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2017 The Bitcoin Core developers
-// Copyright (c) 2017-2019 The Soferox developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -13,7 +12,6 @@
 #include <consensus/consensus.h>
 #include <consensus/tx_verify.h>
 #include <consensus/merkle.h>
-#include <consensus/params.h>
 #include <consensus/validation.h>
 #include <hash.h>
 #include <validation.h>
@@ -168,22 +166,6 @@ std::unique_ptr<CBlockTemplate> BlockAssembler::CreateNewBlock(const CScript& sc
     pblock->vtx[0] = MakeTransactionRef(std::move(coinbaseTx));
     pblocktemplate->vchCoinbaseCommitment = GenerateCoinbaseCommitment(*pblock, pindexPrev, chainparams.GetConsensus());
     pblocktemplate->vTxFees[0] = -nFees;
-
-    /**************************
-     TESTING FORK BLOCK FORMAT
-    **************************/
-//    const Consensus::Params& params = chainparams.GetConsensus();
-//    arith_uint256 nonce;
-//    if (nHeight >= params.SFXHeight) {
-        // Randomise nonce for new block foramt.
-//        nonce = UintToArith256(GetRandHash());
-        // Clear the top and bottom 16 bits (for local use as thread flags and counters)
-//        nonce <<= 32;
-//        nonce >>= 16;
-//    }
-    /**************************
-     TESTING FORK BLOCK FORMAT
-    **************************/
 
     LogPrintf("CreateNewBlock(): block weight: %u txs: %u fees: %ld sigops %d\n", GetBlockWeight(*pblock), nBlockTx, nFees, nBlockSigOpsCost);
 

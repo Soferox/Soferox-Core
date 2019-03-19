@@ -1,16 +1,17 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2017 The Bitcoin Core developers
-// Copyright (c) 2017-2019 The Soferox developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include <netbase.h>
+
 #include <hash.h>
 #include <sync.h>
 #include <uint256.h>
 #include <random.h>
 #include <util.h>
 #include <utilstrencodings.h>
+
 #include <atomic>
 
 #ifndef WIN32
@@ -30,7 +31,6 @@ static proxyType nameProxy;
 static CCriticalSection cs_proxyInfos;
 int nConnectTimeout = DEFAULT_CONNECT_TIMEOUT;
 bool fNameLookup = DEFAULT_NAME_LOOKUP;
-bool fSkipHardforkIBD = false;
 
 // Need ample time for negotiation for very slow proxies such as Tor (milliseconds)
 static const int SOCKS5_RECV_TIMEOUT = 20 * 1000;

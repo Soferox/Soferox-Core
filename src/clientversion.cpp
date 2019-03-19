@@ -1,5 +1,4 @@
 // Copyright (c) 2012-2017 The Bitcoin Core developers
-// Copyright (c) 2017-2019 The Soferox developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -42,7 +41,7 @@ const std::string CLIENT_NAME("Soferox");
 #include <obj/build.h>
 #endif
 
-#define BUILD_DESC "v3.1.0"    //SFX
+#define BUILD_DESC "v3.0.1"    //SFX
 
 //! git will put "#define GIT_ARCHIVE 1" on the next line inside archives. $Format:%n#define GIT_ARCHIVE 1$
 #ifdef GIT_ARCHIVE

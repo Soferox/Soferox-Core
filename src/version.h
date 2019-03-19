@@ -10,7 +10,7 @@
  * network protocol versioning
  */
 
-static const int PROTOCOL_VERSION = 80015;
+static const int PROTOCOL_VERSION = 70016;
 
 //! initial proto version, to be increased after version/verack negotiation
 static const int INIT_PROTO_VERSION = 209;
@@ -44,6 +44,6 @@ static const int SHORT_IDS_BLOCKS_VERSION = 70014;
 static const int INVALID_CB_NO_BAN_VERSION = 70015;
 
 //! extra features enabled for dual chain starts with this version
-static const int DUAL_CHAIN_VERSION = 80015;
+static const int DUAL_CHAIN_VERSION = 80016;
 
 #endif // BITCOIN_VERSION_H

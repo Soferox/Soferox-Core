@@ -1,10 +1,10 @@
 // Copyright (c) 2009-2010 Satoshi Nakamoto
 // Copyright (c) 2009-2017 The Bitcoin Core developers
-// Copyright (c) 2017-2019 The Soferox developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
 #include <script/interpreter.h>
+
 #include <crypto/ripemd160.h>
 #include <crypto/sha1.h>
 #include <crypto/sha256.h>
@@ -195,10 +195,6 @@ bool static IsDefinedHashtypeSignature(const valtype &vchSig) {
         return false;
 
     return true;
-}
-
-bool static AllowsNonForkId(unsigned int flags) {
-    return flags & SCRIPT_ALLOW_NON_FORKID;
 }
 
 bool CheckSignatureEncoding(const std::vector<unsigned char> &vchSig, unsigned int flags, ScriptError* serror) {
