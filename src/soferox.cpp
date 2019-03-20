@@ -54,7 +54,7 @@ using namespace std;
 static const int64_t nGenesisBlockRewardCoin = 1 * COIN;
 int64_t minimumSubsidy = 5.0 * COIN;
 static const int64_t nPremine = 40000000 * COIN;
-
+static const int64_t nDualChainReserve = 20000000 * COIN;
 int64_t static GetBlockSubsidy(int nHeight){
 
 
@@ -66,21 +66,8 @@ int64_t static GetBlockSubsidy(int nHeight){
 	if (nHeight == 1)
     {
         return nPremine;
-		/*
-		optimized standalone cpu miner 	60*512=30720
-		standalone gpu miner 			120*512=61440
-		first pool			 			70*512 =35840
-		block-explorer		 			60*512 =30720
-		mac wallet binary    			30*512 =15360
-		linux wallet binary  			30*512 =15360
-		web-site						100*512	=51200
-		total									=240640
-		*/
     }
 
-		/*
-		Calculate reward drop at 80 million
-		*/
 	if(nHeight > 101937)
     {
 	return minimumSubsidy;
@@ -100,36 +87,30 @@ int64_t static GetBlockSubsidy(int nHeight){
 
 int64_t static GetBlockSubsidy120000(int nHeight)
 {
-	// Subsidy is reduced by 10% every day (1440 blocks)
-	int64_t nSubsidy = 250 * COIN;
-	int exponent = ((nHeight - 120000) / 1440);
-	for(int i=0; i<exponent; i++)
-		nSubsidy = (nSubsidy * 45) / 50;
+	return minimumSubsidy;
+}
 
-	return nSubsidy;
+int64_t static GetBlockSubsidy135300(int nHeight)
+{
+   if(nHeight == 135350)
+   {
+        return nDualChainReserve;
+   } else {
+
+        return minimumSubsidy;
+   }
 }
 
 int64_t static GetBlockSubsidy150000(int nHeight)
 {
-	static int heightOfMinSubsidy = INT_MAX;
-	if (nHeight < heightOfMinSubsidy) {
-		// Subsidy is reduced by 1% every week (10080 blocks)
-		int64_t nSubsidy = 25 * COIN;
-		int exponent = ((nHeight - 150000) / 10080);
-		for (int i = 0; i < exponent; i++)
-			nSubsidy = (nSubsidy * 99) / 100;
-
-		if (nSubsidy >= minimumSubsidy)
-			return nSubsidy;
-		heightOfMinSubsidy = (min)(heightOfMinSubsidy, nHeight);
-	}
 	return minimumSubsidy;
 }
 
 CAmount GetBlockSubsidy(int nHeight, const Consensus::Params& consensusParams)
 {
 	return nHeight >= 150000 ? GetBlockSubsidy150000(nHeight)
-		: nHeight >= 120000 ? GetBlockSubsidy120000(nHeight)
+                : nHeight >= 135300 ? GetBlockSubsidy135300(nHeight)
+		: nHeight >= 120411 ? GetBlockSubsidy120000(nHeight)
 		: GetBlockSubsidy(nHeight);
 }
 
@@ -370,7 +351,12 @@ public:
 	consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].nStartTime = Consensus::BIP9Deployment::ALWAYS_ACTIVE;
 	consensus.vDeployments[Consensus::DEPLOYMENT_SEGWIT].nTimeout = Consensus::BIP9Deployment::NO_TIMEOUT;
 
-        /**
+	// Deployment of BIP65
+        consensus.vDeployments[Consensus::DEPLOYMENT_BIP65].bit = 5;
+        consensus.vDeployments[Consensus::DEPLOYMENT_BIP65].nStartTime = Consensus::BIP9Deployment::ALWAYS_ACTIVE;
+        consensus.vDeployments[Consensus::DEPLOYMENT_BIP65].nTimeout = Consensus::BIP9Deployment::NO_TIMEOUT;
+
+	/**
         * The best chain should have at least this much work.
         * Don't set a value bigger than 0 if blockchain doesn't have any blocks yet.
         * Set your current ChainWork if you want nodes to wait until the whole blockchain is downloaded

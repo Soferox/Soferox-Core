@@ -7,15 +7,15 @@
 #define PACKAGE_NAME "Soferox Core"
 
 #define CLIENT_VERSION_MAJOR 3
-#define CLIENT_VERSION_MINOR 0
+#define CLIENT_VERSION_MINOR 1
 #define CLIENT_VERSION_REVISION 0
 #define CLIENT_VERSION_BUILD 0
 
 #define CLIENT_VERSION_IS_RELEASE true
 
-#define COPYRIGHT_YEAR 2018
+#define COPYRIGHT_YEAR 2019
 
-#define BUILD_DESC "v3.0.0"
+#define BUILD_DESC "v3.1.0"
 
 #define COPYRIGHT_HOLDERS "The %s developers"
 #define COPYRIGHT_HOLDERS_FINAL "The Soferox Core developers"

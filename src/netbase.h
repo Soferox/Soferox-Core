@@ -1,4 +1,5 @@
 // Copyright (c) 2009-2017 The Bitcoin Core developers
+// Copyright (c) 2017-2019 The Soferox developers
 // Distributed under the MIT software license, see the accompanying
 // file COPYING or http://www.opensource.org/licenses/mit-license.php.
 
@@ -12,13 +13,13 @@
 #include <compat.h>
 #include <netaddress.h>
 #include <serialize.h>
-
 #include <stdint.h>
 #include <string>
 #include <vector>
 
 extern int nConnectTimeout;
 extern bool fNameLookup;
+extern bool fSkipHardforkIBD;
 
 //! -timeout default
 static const int DEFAULT_CONNECT_TIMEOUT = 5000;
